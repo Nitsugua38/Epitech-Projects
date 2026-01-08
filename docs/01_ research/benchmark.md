@@ -1,36 +1,27 @@
-				LinkedIn
+## LinkedIn
 
-		Points forts :
+### Pros:
 
-Grand volume d’offres de stages et d’emplois
+- Large amount of job and internship offers
+- Established professional network
+- Recruiter credibility
 
-Réseau professionnel établi
+### Cons:
 
-Crédibilité des recruteurs
+- Complex UI for younger people
+- Very formal culture
+- Long and repetitive job application process
 
-		Limites :
+## Twitter / TikTok (Informal job offers)
 
-Interface complexe pour les jeunes profils
+### Pros:
 
-Culture très formelle
+- Fast publishing
+- Strong commitment
+- Easy discovery through scrolling
 
-Processus de candidature longs et répétitifs
+### Cons:
 
-				Twitter / X (partage informel d’offres)
-
-		Points forts :
-
-Rapidité de diffusion
-
-Fort engagement
-
-Découverte fluide via le scroll
-
-		Limites :
-
-Aucune structuration des offres
-
-Absence d’outils de candidature
-
-Bruit informationnel important
-
+- No structure for job offers
+- No "easy apply" tool
+- Bunch of bullshit
