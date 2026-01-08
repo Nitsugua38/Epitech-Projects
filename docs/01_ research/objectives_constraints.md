@@ -1,30 +1,25 @@
-		Objectifs (mesurables)
+## Objectives
 
-Réduire le temps de candidature
-Permettre de postuler à une offre en moins de 30 secondes grâce à des CV et lettres de motivation enregistrés.
+###### - Reduce application time.
+###### - Allow users to apply to an offer in less than 30 seconds with saved CVs and cover letters.
+###### - Improve opportunities discoverability.
+###### - Allow users to navigate through at least 20 pertinent offers in less than 5 minutes through a continuous feed. 
+###### - Increase displayed offers relevance.
 
-Améliorer la découverte des opportunités
-Permettre à un utilisateur de consulter au moins 20 offres pertinentes en moins de 5 minutes via un feed continu.
+###### - Customize the feed according to:
 
-Augmenter la pertinence des offres affichées
+- User's location
+- User's availability
+- User's preferences and declared exclusions (company boycott, physical or legal constraints)
 
-		Personnaliser le feed selon :
+###### - Commit a young audience.
+###### - Reach engagement level comparable to those of social media, with no fake gamification nor fake content.
 
-La localisation de l’utilisateur
 
-Ses plages horaires disponibles
+## Constraints
 
-Ses préférences et exclusions déclarées (boycott d’entreprises, contraintes physiques ou légales)
-
-Engager un public jeune
-Atteindre des niveaux d’engagement comparables à ceux des réseaux sociaux, sans gamification trompeuse ni contenus non factuels.
-
-		Contraintes :
-
-Toutes les offres doivent être vérifiées et factuelles
-
-Respect strict du droit du travail (âge légal, durée du travail, contrats)
-
-Protection des données personnelles (localisation, CV, préférences)
-
-Transparence des critères de personnalisation du feed
+###### - All offers need to have some sort of verification and fact-checking.
+###### - Strict respect of the right to work (legal age, work duration, contracts).
+###### - Prevent discrimination based on origin, religion, political orientation, etc.
+###### - Protect personal data (GDPR) (location, CV, preferences, etc.)
+###### - Be transparent with feed customization criteria.
