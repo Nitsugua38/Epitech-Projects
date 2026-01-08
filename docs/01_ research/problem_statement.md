@@ -1,21 +1,17 @@
-Problématique
+## Problematic
 
-Les jeunes en formation (lycéens, étudiants, jeunes diplômés) à la recherche d’emplois à temps partiel ou de stages font face à une expérience de recherche fragmentée, inefficace et démotivante.
+Young students (high school, college, grads) looking for part-time jobs or internships are facing a split, inefficient and demotivating search experience.
 
-Les offres sont aujourd’hui dispersées sur de nombreuses plateformes (LinkedIn, sites d’entreprises, plateformes d’emploi étudiant, agences d’intérim), chacune avec ses propres règles, filtres et processus de candidature. Cette fragmentation entraîne :
+Job offers are dispersed among multiple platforms (LinkedIn, Indeed, companies' websites, student jobs platforms), each with its own rules, filters and application processes. This leads to:
 
-Une surcharge cognitive
+- A cognitive overload
+- A waste of time linked to repetitive applications
+- A bad match between applicants constraints (hours, location, values) and available offers
 
-Une perte de temps liée aux candidatures répétitives
+Moreover, the existing professional platforms are often perceived as:
 
-Un mauvais alignement entre les contraintes des candidats (horaires, localisation, valeurs) et les offres proposées
+- Too formal or intimidating for younger people
+- Unadapted for short or student jobs
+- Unoptimized for a fast and fluid job discovery
 
-Par ailleurs, les plateformes professionnelles existantes (comme LinkedIn) sont souvent perçues comme :
-
-Trop formelles ou intimidantes pour les jeunes profils
-
-Peu adaptées aux emplois courts ou étudiants
-
-Mal optimisées pour une découverte rapide et fluide des offres
-
-La problématique est donc de concilier un matching emploi efficace avec une expérience utilisateur engageante et à faible friction, inspirée des feeds de réseaux sociaux (Twitter/X), tout en garantissant des informations factuelles et fiables.
+The problematic is to reconcile an efficient job matching with an engaging, low friction user experience, inspired by social media feeds (Twitter/TikTok), while guaranteeing factual and trustable information.
