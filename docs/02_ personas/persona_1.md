@@ -1,5 +1,3 @@
-## Persona principal – Étudiant job/stage
-
 ### Nom
 Lucas Martin
 
