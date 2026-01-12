@@ -28,4 +28,3 @@ Inès Dupont
 - Filtrage automatique par âge légal  
 - Offres locales prioritaires  
 - Indications claires et rassurantes
-
