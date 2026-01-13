@@ -1,31 +1,28 @@
-# Personas – Plateforme emploi/stage en feed
+# Personas – Job/Internship Platform in Feed
 
-Ce dossier contient les personas utilisateurs du projet de plateforme de recherche
-d’emplois et de stages inspirée des feeds de réseaux sociaux (Twitter/X),
-tout en intégrant des fonctionnalités issues de plateformes professionnelles
-comme LinkedIn.
+This document contains the user personas for the job and internship search platform project, inspired by social media feeds (Twitter/X), while integrating features from professional platforms like LinkedIn.
 
-## Objectif des personas
+## Persona Objectives
 
-Les personas servent à :
-- Comprendre les besoins réels des utilisateurs cibles
-- Identifier les frictions actuelles dans la recherche d’emploi/stage
-- Guider les choix de conception UX, UI et algorithmiques
-- Justifier les fonctionnalités du produit dans un cadre académique ou projet
+The personas serve to:
+- Understand the real needs of the target users
+- Identify current friction points in the job/internship search
+- Guide UX, UI, and algorithmic design choices
+- Justify the product's features within an academic or project context
 
-## Public cible couvert
+## Target Audience
 
-- Lycéens recherchant un emploi à temps partiel
-- Étudiants en recherche de jobs étudiants
-- Étudiants en formation nécessitant un stage obligatoire
+- High school students seeking part-time employment
+- Students looking for student jobs
+- Students in training requiring a mandatory internship
 
-## Organisation
+## Organization
 
-Chaque persona est décrit dans un fichier Markdown indépendant,
-contenant :
-- Profil et contexte
-- Objectifs
+Each persona is described in a separate Markdown file,
+containing:
+- Profile and context
+- Objectives
 - Motivations
-- Comportements
+- Behaviors
 - Pain points
-- Attentes vis-à-vis de la plateforme.
+- Expectations of the platform.
