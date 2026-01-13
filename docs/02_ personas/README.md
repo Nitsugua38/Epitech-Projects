@@ -28,8 +28,4 @@ contenant :
 - Motivations
 - Comportements
 - Pain points
-- Attentes vis-à-vis de la plateforme
-
-Ces personas sont directement reliés à la problématique et aux objectifs
-mesurables du projet.
-
+- Attentes vis-à-vis de la plateforme.
