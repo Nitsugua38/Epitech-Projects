@@ -1,30 +1,30 @@
-### Nom
+### Name
 Inès Dupont
 
-### Profil
-- Âge : 17 ans  
-- Statut : Lycéenne (Terminale)  
-- Contraintes : Cadre légal strict, horaires limités  
+### Profile
+- Age: 17
+- Status: High school senior
+- Constraints: Strict legal framework, limited hours
 
-### Objectifs
-- Trouver un petit job légal et proche de chez elle  
-- Rassurer ses parents sur la fiabilité des offres  
+### Objectives
+- Find a legal part-time job close to home
+- Reassure her parents about the reliability of the offers
 
 ### Motivations
-- Gagner un premier revenu  
-- Devenir plus autonome  
+- Earn her first income
+- Become more independent
 
-### Comportements
-- Usage mobile quasi exclusif  
-- Très sensible à la clarté et à la simplicité  
-- Peu à l’aise avec les codes professionnels classiques
+### Behaviors
+- Almost exclusively uses mobile devices
+- Very sensitive to clarity and simplicity
+- Uncomfortable with traditional professional norms
 
 ### Pain points
-- Difficulté à identifier les offres accessibles aux mineurs  
-- Peur des arnaques  
-- Plateformes trop complexes
+- Difficulty identifying offers accessible to minors
+- Fear of scams
+- Overly complex platforms
 
-### Attentes
-- Filtrage automatique par âge légal  
-- Offres locales prioritaires  
-- Indications claires et rassurantes
+### Expectations
+- Automatic filtering by legal age
+- Priority given to local offers
+- Clear and reassuring information

@@ -1,39 +1,39 @@
-### Nom
+### Name
 Lucas Martin
 
-### Profil
-- Âge : 19 ans  
-- Statut : Étudiant en licence (L1/L2)  
-- Situation : Vit en ville universitaire, transports en commun  
-- Équipement : Smartphone (usage principal), ordinateur portable  
+### Profile
+- Age: 19  
+- Status: Student in license (L1/L2)  
+- Situation: Lives in university town, public transportation
+- Equipment: Smartphone (primary use), laptop
 
-### Objectifs
-- Trouver rapidement un emploi à temps partiel compatible avec ses cours  
-- Postuler sans répéter 10 fois les mêmes informations  
-- Accéder à des offres fiables et légales  
-- Maximiser ses chances de réponse avec peu d’expérience
+### Objectives
+- Quickly find a part-time job compatible with studies
+- Apply without repeating the same information 10 times
+- Access reliable and legal job postings
+- Maximize chances of getting a response with limited experience
 
 ### Motivations
-- Gagner de l’argent pour financer ses études et sa vie quotidienne  
-- Acquérir une première expérience professionnelle valorisable  
-- Avoir le sentiment d’avancer sans y passer des heures  
+- Earn money to finance studies and daily living expenses
+- Gain valuable initial professional experience
+- Feel like you're making progress without spending hours on it
 
-### Comportements
-- Scrolle quotidiennement sur TikTok, Instagram, X  
-- Consulte les offres par courtes sessions (5–10 minutes)  
-- Abandonne rapidement si un formulaire est trop long  
-- Sauvegarde des contenus pour y revenir plus tard  
+### Behaviors
+- Scroll daily on TikTok, Instagram, X
+- Browse job postings in short sessions (5-10 minutes)
+- Give up quickly if a form is too long
+- Save content to return to later
 
-### Pain points (frictions actuelles)
-- Offres dispersées sur trop de plateformes  
-- Candidatures longues et répétitives  
-- Offres peu adaptées à ses horaires réels  
-- Ton trop formel/intimidant des plateformes pro  
-- Doute sur la fiabilité des annonces
+### Pain points (current challenges)
+- Job postings scattered across too many platforms
+- Long and repetitive applications
+- Job postings poorly suited to actual schedules
+- Tone too formal/intimidating on professional platforms
+- Doubts about the reliability of job postings
 
-### Attentes vis-à-vis de la plateforme
-- Un feed simple, fluide, type Twitter/X  
-- Des résumés clairs (lieu, horaires, salaire, âge requis)  
-- Un bouton « postuler instantanément »  
-- Possibilité d’exclure certaines entreprises ou secteurs  
-- Sauvegarde automatique de CV/lettres
+### Expectations of the platform
+- A simple, fluid feed, like Twitter/X
+- Clear summaries (location, hours, salary, age requirement)
+- An "Instant Apply" button
+- Ability to exclude certain companies or sectors
+- Automatic saving of CVs and cover letters

@@ -1,41 +1,39 @@
-### Nom
+### Name
 Mehdi Benali
 
-### Profil
-- Âge : 21 ans  
-- Statut : Étudiant en BTS / BUT / Licence pro  
-- Objectif : Stage obligatoire
+### Profile
+- Age: 21
+- Status: Student in a two-year technical degree (BTS/BUT/Bachelor's degree)
+- Objective: Mandatory internship
 
-### Objectifs
-- Trouver rapidement un stage conforme à son cursus  
-- Être visible auprès des recruteurs  
-- Centraliser candidatures et contacts
+### Objectives
+- Quickly find an internship that matches his studies
+- Be visible to recruiters
+- Centralize applications and contacts
 
 ### Motivations
-- Valider son diplôme  
-- Construire son réseau professionnel
+- Validate his degree
+- Build his professional network
 
 ### Pain points
-- Offres peu lisibles sur les missions réelles  
-- Manque de retours des entreprises  
-- Processus de candidature répétitif
+- Offers are not very clear about the actual tasks involved
+- Lack of feedback from companies
+- Repetitive application process
 
-### Attentes
-- Feed personnalisé par domaine d’études  
-- Lien avec ses réseaux professionnels  
-- Historique et suivi des candidatures
+### Expectations
+- Personalized feed by field of study
+- Connection to his professional networks
+- Application history and tracking
 
 ---
 
-## Synthèse transversale
+## Summary for all personas
 
-**Besoins communs** :
-- Rapidité  
-- Simplicité  
-- Fiabilité  
-- Personnalisation  
+**Common needs**:
+- Speed
+- Simplicity
+- Reliability
+- Personalization
 
-**Valeur clé du produit** :
-> Transformer la recherche d’emploi/stage en une expérience fluide, continue et non intimidante, sans sacrifier la qualité de l’information ni la conformité légale.
-
-
+**Key value of the product**:
+> Transform the search from employment/internship to a smooth, continuous and non-intimidating experience, without sacrificing the quality of information or legal compliance.
