@@ -1,81 +1,83 @@
-1. Contexte
+#### 1. Context
 
-En ce moment, est-ce que tu cherches un job ou un stage ?
+Are you looking for a job/internship right now?
 
 ☐ Job
 
-☐ Stage
+☐ Internship
 
-☐ Les deux
+☐ Both
 
-☐ Rien
+☐ None
 
-2. Recherche actuelle
+#### 2. Current job searching
 
-Où est-ce que tu cherches le plus souvent des offres ?
-(LinkedIn, sites d’emploi, réseaux sociaux, autres)
+Where are you usually looking for job opportunities?
+(LinkedIn, websites, social media, others)
 
-Qu’est-ce qui te fait le plus perdre du temps ou te décourage quand tu postules ?
+What discourages you the most / wastes your time when applying to jobs?
 
-3. Contraintes
+#### 3. Constraints
 
-Quelle est ta contrainte principale quand tu cherches un job/stage ?
-(horaires, localisation, emploi du temps, autre)
+What is your main constraint when looking for a job?
+(hours, location, schedule, other)
 
-Est-ce que tu vois souvent des offres qui ne respectent pas cette contrainte ?
+Do you often see offers that do not respect this constraint ?
 
-☐ Oui, souvent
+☐ Yes, often
 
-☐ Parfois
+☐ Sometimes
 
-☐ Rarement
+☐ Rarely
 
-4. Habitudes et format
+#### 4. Habits and format
 
-Est-ce que tu utilises des applis avec un feed à scroller (X, Insta, TikTok) ?
+Are you using scrolling apps (X, Insta, TikTok)?
 
-☐ Oui, tous les jours
+☐ Yes, everyday
 
-☐ Oui, souvent
+☐ Yes, often
 
-☐ Rarement
+☐ Rarely
 
-Est-ce que tu pourrais imaginer découvrir des offres via un feed à faire défiler ?
+Could you imagine discovering job opportunities through a scrolling feed?
 
-☐ Oui
+☐ Yes
 
-☐ Non
+☐ No
 
-☐ Ça dépend
-Pourquoi ?
+☐ It depends, why?
 
-5. Candidature rapide
+#### 5. Fast application
 
-Si tu pouvais enregistrer ton CV et postuler en un clic, est-ce que tu postulerais plus ?
+If you could save your CV and apply in one click, would you apply to more jobs?
 
-☐ Oui
+☐ Yes
 
-☐ Non
+☐ No
 
-☐ Je ne sais pas
+☐ I don't know
 
 =================================================================================================================================
 
-2
-manipulation des cv, infos perso a renseigner,
-1
-1
-1
-LEO G
-2
-rien
-1
-1
-1
-raph leger
-4
-le bon coin, hellowork
-1
-1
-1
-Simon Slack
+
+Leo G:
+- 2
+- cv editing, having to enter personal info
+- 1
+- 1, 1
+- 1
+
+Raphaël Leger:
+- 2
+- none
+- 1
+- 1, 1
+- 1
+
+Simon Slack:
+- 4
+- leboncoin, hellowork
+- 1
+- 1, 1
+- 1
