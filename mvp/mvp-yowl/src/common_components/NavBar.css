@@ -1,7 +1,75 @@
 .navbar {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    background-color: #f0f0f0;
+    gap: 5vh;
+    padding: 30px 20px;
+    background-color: #f0ebeb;
+    width: 16vw;
+    position: fixed;
+    top: 2vw;
+    left: 2vw;
+    bottom: 2vw;
+    border-radius: 50px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-family: Montserrat;
+    display: flex;
+    align-items: center;
+    font-size: 25;
+}
+
+
+.navbar a span {
+    margin-left: 10px;
+}
+
+.profileNavSpan {
+    margin-left: 12.5px !important;
+}
+
+.profileNavImg {
+    margin-left: 2.5px;
+}
+
+
+.settingsNavIcon {
+    position: fixed;
+    bottom: 4vw;
+}
+
+.settingsNavIcon span {
+    font-size: 20;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: unset;
+        padding: 0 5vw;
+        width: 90vw;
+        top: unset;
+        left: 0;
+        bottom: 0;
+        height: 80px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .navbar img {
+        height: 50px;
+    }
+
+    .navbar a span {
+        display: none;
+    }
+
+    .settingsNavIcon * {
+        display: none;
+    }
 }
