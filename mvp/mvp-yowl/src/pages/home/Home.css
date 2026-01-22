@@ -1,14 +1,15 @@
 .outer-card {
-  width: 700px;
-  min-height: 400px;
-  margin: 100px auto;
+  width: 1300px;
+  min-height: 500px;
+  margin: 120px auto 120px 200px;
+  padding: 40px 0;
+  float: right;
   background: #ffffff;
   border-radius: 20px;
   border: 2px solid #d1d1d1;
   box-shadow: 
-    0 10px 20px rgba(0, 0, 0, 0.12),
-    0 15px 30px rgba(0, 0, 0, 0.08);
-  padding: 30px 0;
+    0 10px 20px rgba(0, 0, 0, 0.1),
+    0 15px 30px rgba(0, 0, 0, 0.06);
   transition: all 0.8s ease;
   opacity: 0;
   transform: translateY(30px);
@@ -20,24 +21,24 @@
 }
 
 .inner-content {
-  width: 88%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
 }
 
 .inner-card {
   width: 100%;
   background: #f8f9fa;
   border: 2px solid #e9ecef;
-  border-radius: 24px;
-  padding: 24px;
+  border-radius: 28px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
 }
 
 .post-header {
@@ -47,8 +48,8 @@
 }
 
 .profile-pic {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   background: #e0e0e0;
   border-radius: 50%;
   border: 2px solid #aaa;
@@ -63,22 +64,24 @@
 .username {
   font-weight: 600;
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .post-title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #666;
-  margin-top: 4px;
+  margin-top: 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .action-buttons {
   display: flex;
-  gap: 18px;
+  gap: 20px;
 }
 
 .action-btn {
@@ -97,21 +100,88 @@
   background-color: #f0f0f0;
 }
 
-.post-field {
-  font-size: 1.15rem;
-  color: #495057;
-  line-height: 1.6;
-  padding: 20px 24px;
-  background: #ffffff;
-  border: 1px solid #dee2e6;
-  border-radius: 12px;
-  min-height: 100px;
-  text-align: left;
+.post-content-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 24px;
 }
 
-.outer-card:hover {
-  box-shadow: 
-    0 12px 28px rgba(0, 0, 0, 0.16),
-    0 18px 40px rgba(0, 0, 0, 0.12);
-  border-color: #c0c0c0;
+.post-field {
+  flex: 1;
+  font-size: 1.2rem;
+  color: #495057;
+  line-height: 1.6;
+  padding: 24px 28px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 14px;
+  min-height: 110px;
+  text-align: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-comments {
+  flex: 0 0 35%;
+  max-width: 35%;
+  background: #ffffff;
+  border: 1px solid #e0f0ff;
+  border-radius: 14px;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+
+.comment-line {
+  margin: 6px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}   
+
+.top-comments {
+  flex: 0 0 35%;
+  max-width: 35%;
+  background: #f8f9fa;
+  border-radius: 14px;
+  padding: 20px;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+.comment-line {
+  margin: 8px 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.comment-line:last-child {
+  border-bottom: none;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.comment-profile-pic {
+  width: 28px;
+  height: 28px;
+  background-size: cover;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+.comment-username {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.comment-text {
+  font-size: 1rem;
+  color: #555;
+  margin-left: 36px;
 }   
