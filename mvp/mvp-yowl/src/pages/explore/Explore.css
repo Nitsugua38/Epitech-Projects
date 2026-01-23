@@ -1,0 +1,152 @@
+#feed {
+    background-color: #f0ebeb;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    position: fixed;
+    top: 2vw;
+    bottom: 2vw;
+    left: 23vw;
+    right: 2vw;
+    border-radius: 50px;
+    font-family: Montserrat;
+    font-size: 15px;
+    border: 15px solid #f0ebeb;
+}
+
+
+.item {
+    min-height: 100%;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d2d1d1;
+    border-radius: 40px;
+    color: black;
+}
+
+.item video, .item img {
+    max-width: 80%;
+    border-radius: 15px;
+}
+
+.item video {
+    max-height: 80vh;
+}
+
+.jobPost {
+    padding: 15px 30px;
+    background-color: #b6b4b4;
+    border-radius: 20px;
+    line-height: 1.4;
+    margin: 0 20px;
+}
+
+.jobPost h2 {
+    text-align: center;
+}
+
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.jobInfo {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    background-color: #b6b4b4a2;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.quickActions {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 35px;
+}
+
+.applyBtn {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(12, 12, 218);
+    padding: 10px 200px;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    #feed {
+        bottom: 80px;
+        left: 2vw;
+        border-radius: 20px;
+        font-size: 11px;
+        border: 5px solid #f0ebeb;
+    }
+
+
+    .item {
+        border-radius: 10px;
+    }
+
+    .item video, .item img {
+        max-width: 90%;
+        border-radius: 10px;
+    }
+
+    .item video {
+        max-height: 90vh;
+    }
+
+    .jobPost {
+        border-radius: 15px;
+        margin: 0 10px;
+    }
+
+    .jobInfo {
+        bottom: 45px;
+        left: 5px;
+        font-size: 10px;
+    }
+
+    .quickActions {
+        bottom: 50px;
+        right: 15px;
+        gap: 10px;
+        font-size: 25px;
+    }
+
+    .applyBtn {
+        bottom: 5px;
+        padding: 7px;
+        left: 5px;
+        right: 5px;
+        transform: none;
+    }
+}
