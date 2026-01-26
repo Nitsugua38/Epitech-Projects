@@ -1,0 +1,1 @@
+This folder contains a file detailing the detailed usage scenario of our app. It also includes some potential friction points as well as some opportunities we will need to exploit.
