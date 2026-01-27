@@ -18,7 +18,7 @@
     font-family: Montserrat;
     display: flex;
     align-items: center;
-    font-size: 25;
+    font-size: 20px;
 }
 
 
@@ -41,7 +41,7 @@
 }
 
 .settingsNavIcon span {
-    font-size: 20;
+    font-size: 15px;
 }
 
 
@@ -57,12 +57,12 @@
         top: unset;
         left: 0;
         bottom: 0;
-        height: 80px;
+        height: 70px;
         border-radius: 15px 15px 0 0;
     }
 
     .navbar img {
-        height: 50px;
+        height: 35px;
     }
 
     .navbar a span {
