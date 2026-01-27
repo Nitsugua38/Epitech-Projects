@@ -2,8 +2,11 @@ import { useState } from 'react'
 
 import jobVideo from "./assets/jobVideo.mp4"
 import jobImage from "./assets/jobImage.jpg"
+import ApplyPopup from './ApplyPopup'
 
 function Item({ item }) {
+
+    const [isApplying, setIsApplying] = useState(false)
 
     return (
         <>
@@ -22,13 +25,17 @@ function Item({ item }) {
                         <span>Company</span>
                     </div>
 
-                    <button className='applyBtn'>Apply</button>
+                    <button className='applyBtn' onClick={() => setIsApplying(true)}>Apply</button>
 
                     <div className='quickActions'>
                         <span>❤️</span>
                         <span>💬</span>
                         <span>📩</span>
                     </div>
+
+
+                    {isApplying && <ApplyPopup isApplying={isApplying} setIsApplying={setIsApplying} />}
+
                 </div>
 
             </div>
