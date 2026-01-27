@@ -35,16 +35,6 @@
 }
 
 
-.settingsNavIcon {
-    position: fixed;
-    bottom: 4vw;
-}
-
-.settingsNavIcon span {
-    font-size: 15px;
-}
-
-
 
 
 @media (max-width: 768px) {
@@ -53,12 +43,14 @@
         justify-content: space-between;
         gap: unset;
         padding: 0 5vw;
-        width: 90vw;
+        width: auto;
         top: unset;
         left: 0;
+        right: 0;
         bottom: 0;
         height: 70px;
         border-radius: 15px 15px 0 0;
+        z-index: 100;
     }
 
     .navbar img {
@@ -68,9 +60,3 @@
     .navbar a span {
         display: none;
     }
-
-    .settingsNavIcon * {
-        display: none;
-    }
-}
-
