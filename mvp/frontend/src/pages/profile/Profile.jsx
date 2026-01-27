@@ -1,8 +1,10 @@
+import { useState } from "react";
 import "./Profile.css";
 
 function Profile() {
 
-  // Same post structure as Home (reduced count for profile)
+  const [activeTab, setActiveTab] = useState("posts");
+
   const posts = Array(6).fill().map((_, i) => ({
     id: i + 1,
     username: "jane_doe",
@@ -15,56 +17,75 @@ function Profile() {
     ]
   }));
 
+  const jobs = [
+    {
+      role: "Senior UI/UX Designer",
+      company: "Creative Studio",
+      date: "2022 – Present",
+      description:
+        "Led the redesign of multiple SaaS platforms, focusing on accessibility and design systems."
+    }
+  ];
+
   return (
     <div className="profile-page">
-
-      {/* HEADER */}
+      <div className="profile-banner">
+        <div className="banner-username">Username</div>
+      </div>
+      <div className="profile-divider"></div>
       <div className="profile-header">
         <div className="profile-avatar"></div>
-        <div className="profile-divider"></div>
+        <div className="profile-handle">@username_pizza</div>
       </div>
 
-      {/* SECTION TITLES */}
       <div className="profile-sections">
-        <h2>Posts</h2>
-        <h2>Job History</h2>
+        <h2
+          className={activeTab === "posts" ? "active" : ""}
+          onClick={() => setActiveTab("posts")}
+        >
+          Posts
+        </h2>
+        <h2
+          className={activeTab === "jobs" ? "active" : ""}
+          onClick={() => setActiveTab("jobs")}
+        >
+          Job History
+        </h2>
       </div>
 
-      {/* POSTS SCROLL */}
-      <div className="profile-horizontal-scroll">
-        {posts.map(post => (
-          <div key={post.id} className="inner-card profile-post-card">
-            
-            <div className="post-header">
-              <div className="profile-pic"></div>
-              <div className="user-info">
-                <div className="username">{post.username}</div>
-                <div className="post-title">{post.title}</div>
+      {activeTab === "posts" && (
+        <div className="profile-horizontal-scroll">
+          {posts.map(post => (
+            <div key={post.id} className="inner-card profile-post-card">
+              <div className="post-header">
+                <div className="profile-pic"></div>
+                <div className="user-info">
+                  <div className="username">{post.username}</div>
+                  <div className="post-title">{post.title}</div>
+                </div>
+              </div>
+
+              <div className="post-content-wrapper">
+                <div className="post-field">{post.content}</div>
               </div>
             </div>
+          ))}
+        </div>
+      )}
 
-            <div className="post-content-wrapper">
-              <div className="post-field">{post.content}</div>
-
-              <div className="top-comments">
-                {post.comments.map((comment, index) => (
-                  <div key={index} className="comment-line">
-                    <div className="comment-header">
-                      <div
-                        className="comment-profile-pic"
-                        style={{ backgroundImage: `url(${comment.img})` }}
-                      ></div>
-                      <div className="comment-username">{comment.user}</div>
-                    </div>
-                    <div className="comment-text">{comment.text}</div>
-                  </div>
-                ))}
-              </div>
+      {activeTab === "jobs" && (
+        <div className="job-history">
+          {jobs.map((job, index) => (
+            <div key={index} className="job-card">
+              <h3>{job.role}</h3>
+              <span className="job-meta">
+                {job.company} • {job.date}
+              </span>
+              <p>{job.description}</p>
             </div>
-
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
     </div>
   );
