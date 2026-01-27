@@ -1,0 +1,87 @@
+/* =====================
+   PROFILE PAGE
+===================== */
+.profile-page {
+  margin-left: 20vw;
+  padding: 2vw;
+}
+
+/* =====================
+   HEADER + AVATAR LINE
+===================== */
+.profile-header {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  border: 4px solid white;
+  z-index: 2;
+}
+
+.profile-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #ddd;
+  z-index: 1;
+}
+
+/* =====================
+   SECTION TITLES
+===================== */
+.profile-sections {
+  display: flex;
+  gap: 40px;
+  margin: 24px 0 16px;
+}
+
+.profile-sections h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* =====================
+   HORIZONTAL SCROLL
+===================== */
+.profile-horizontal-scroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.profile-post-card {
+  min-width: 480px;
+  max-width: 480px;
+  scroll-snap-align: start;
+}
+
+/* =====================
+   MOBILE
+===================== */
+@media (max-width: 768px) {
+
+  .profile-page {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .profile-sections {
+    gap: 24px;
+  }
+
+  .profile-post-card {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+}
