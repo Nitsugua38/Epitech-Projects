@@ -16,10 +16,15 @@ const GetPostById = require("./routes/get/post_id.js");
 const GetUser = require("./routes/get/user.js");
 const GetUserTodos = require("./routes/get/user_post.js");
 const GetUserByIdOrEmail = require("./routes/get/user:id_:email.js");
+const bodyParser = require('body-parser')
 
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cors({origin: ["*"]}));
+
+app.use(bodyParser.json())
 
 // DELETE
 app.use("/user", DeleteUser);
