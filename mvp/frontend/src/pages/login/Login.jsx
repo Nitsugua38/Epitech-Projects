@@ -14,7 +14,6 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const [regFirstname, setRegFirstname] = useState("");
-  const [regLastname, setRegLastname] = useState("");
   const [regEmail, setRegEmail] = useState("");
   const [regPassword, setRegPassword] = useState("");
 
@@ -22,26 +21,14 @@ function Login() {
     setMode("login");
     setErrorMessage("");
     setSuccessMessage("");
-
-    setTimeout(() => {
-      formBoxRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 100);
+    formBoxRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const goRegister = () => {
     setMode("register");
     setErrorMessage("");
     setSuccessMessage("");
-
-    setTimeout(() => {
-      formBoxRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }, 100);
+    formBoxRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const loginUser = async () => {
@@ -49,28 +36,29 @@ function Login() {
     setSuccessMessage("");
 
     try {
-      const res = await fetch("https://localhost/api/login", {
+      const res = await fetch("http://localhost:5173/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await res.json().catch(() => null);
-      if (!res.ok) throw new Error(data?.msg || "Login failed");
+      const data = await res.json();
 
-      if (data.token) {
-        localStorage.setItem("authToken", data.token);
+      if (!res.ok) {
+        throw new Error(data.msg || data.error || "Invalid credentials");
       }
 
-      navigate("/profile");
+      console.log("Login success:", data);
+
+      navigate("/profile"); // redirect after login
     } catch (err) {
       setErrorMessage("Login error: " + err.message);
     }
   };
 
   const registerUser = async () => {
-    if (!regFirstname || !regLastname || !regEmail || !regPassword) {
+    if (!regFirstname || !regEmail || !regPassword) {
       setErrorMessage("Please fill all fields.");
       return;
     }
@@ -79,20 +67,21 @@ function Login() {
     setSuccessMessage("");
 
     try {
-      const res = await fetch("https://localhost/api/register", {
+      const res = await fetch("http://localhost:5173/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include",
         body: JSON.stringify({
-          firstname: regFirstname,
-          name: regLastname,
+          name: regFirstname,
           email: regEmail,
           password: regPassword,
         }),
       });
 
-      const data = await res.json().catch(() => null);
-      if (!res.ok) throw new Error(data?.msg || "Register failed");
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.msg || "Registration failed");
+      }
 
       setSuccessMessage("Account created successfully!");
       setTimeout(() => navigate("/profile"), 800);
@@ -122,7 +111,7 @@ function Login() {
               placeholder="Email"
               className="input-field"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
@@ -130,7 +119,7 @@ function Login() {
               placeholder="Password"
               className="input-field"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <button className="submit">Login</button>
@@ -142,24 +131,27 @@ function Login() {
           <form onSubmit={onSubmit}>
             <input
               type="text"
-              placeholder="Name"
+              placeholder="First name"
               className="input-field"
               value={regFirstname}
-              onChange={e => setRegFirstname(e.target.value)}
+              onChange={(e) => setRegFirstname(e.target.value)}
+              required
             />
             <input
               type="email"
               placeholder="Email"
               className="input-field"
               value={regEmail}
-              onChange={e => setRegEmail(e.target.value)}
+              onChange={(e) => setRegEmail(e.target.value)}
+              required
             />
             <input
               type="password"
               placeholder="Password"
               className="input-field"
               value={regPassword}
-              onChange={e => setRegPassword(e.target.value)}
+              onChange={(e) => setRegPassword(e.target.value)}
+              required
             />
             <button className="submit">Create account</button>
           </form>
