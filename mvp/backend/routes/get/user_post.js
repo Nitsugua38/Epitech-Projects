@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("../../config/db");
 const router = express.Router();
 
-router.get("/todo/:id", (req, res) => {
+router.get("/post/:id", (req, res) => {
   const { id } = req.params;
 
   db.query("SELECT * FROM posts WHERE user_id = ?", [id], (err, rows) => {
