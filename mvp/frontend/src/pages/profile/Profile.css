@@ -104,11 +104,20 @@
 
 @media (max-width: 768px) {
   .profile-page {
-    margin-left: 0;
+    left: 2vw;
+    right: 2vw;
+    border-radius: 20px;
+    bottom: 80px;
   }
 
   .profile-post-card {
     min-width: 90vw;
     max-width: 90vw;
+  }
+
+
+  .banner-username {
+    font-size: 1.5rem;
+    left: 30vw;
   }
 }
