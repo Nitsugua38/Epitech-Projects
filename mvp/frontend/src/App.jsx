@@ -1,37 +1,34 @@
-import { useState } from 'react'
-import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import "./App.css";
 
-import Home from './pages/home/Home.jsx';
-import Explore from './pages/explore/Explore.jsx';
-import Notifications from './pages/notifications/Notifications.jsx';
-import Messages from './pages/messages/Messages.jsx';
-import Profile from './pages/profile/Profile.jsx';
+import Home from "./pages/home/Home.jsx";
+import Explore from "./pages/explore/Explore.jsx";
+import Notifications from "./pages/notifications/Notifications.jsx";
+import Messages from "./pages/messages/Messages.jsx";
+import Profile from "./pages/profile/Profile.jsx";
+import Login from "./pages/login/Login.jsx";
 
-import NavBar from './common_components/NavBar.jsx';
-
-
-
-
+import NavBar from "./common_components/NavBar.jsx";
 
 function App() {
+  return (
+    <BrowserRouter>
 
-    return (
-        <>
-            <BrowserRouter>
+      <NavBar />
 
-                <NavBar />
+      <Routes>
+        {/* Redirect root to signup/login */}
+        <Route path="/" element={<Navigate to="/signin" replace />} />
 
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/explore" element={<Explore />} />
-                    <Route path="/notifications" element={<Notifications />} />
-                    <Route path="/messages" element={<Messages />} />
-                    <Route path="/profile" element={<Profile />} />
-                </Routes>
-            </BrowserRouter>
-        </>
-    )
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/messages" element={<Messages />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/signin" element={<Login />} />
+      </Routes>
+
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
