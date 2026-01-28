@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
@@ -16,6 +16,11 @@ function Login() {
   const [regFirstname, setRegFirstname] = useState("");
   const [regEmail, setRegEmail] = useState("");
   const [regPassword, setRegPassword] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    if (token) navigate("/home");
+  }, [navigate]);
 
   const goLogin = () => {
     setMode("login");
@@ -45,13 +50,13 @@ function Login() {
 
       const data = await res.json();
 
-      if (!res.ok) {
-        throw new Error(data.msg || data.error || "Invalid credentials");
-      }
+      if (!res.ok) throw new Error(data.msg || "Login failed");
 
-      console.log("Login success:", data);
+      if (data.token) localStorage.setItem("authToken", data.token);
+      else localStorage.setItem("authToken", "true"); // fallback si backend ne renvoie pas de token
 
-      navigate("/profile"); // redirect after login
+      setSuccessMessage(data.msg || "Login successful!");
+      navigate("/home");
     } catch (err) {
       setErrorMessage("Login error: " + err.message);
     }
@@ -78,13 +83,10 @@ function Login() {
       });
 
       const data = await res.json();
+      if (!res.ok) throw new Error(data.msg || "Registration failed");
 
-      if (!res.ok) {
-        throw new Error(data.msg || "Registration failed");
-      }
-
-      setSuccessMessage("Account created successfully!");
-      setTimeout(() => navigate("/profile"), 800);
+      setSuccessMessage(data.msg || "Account created successfully!");
+      setTimeout(() => navigate("/home"), 800);
     } catch (err) {
       setErrorMessage("Register error: " + err.message);
     }
@@ -106,22 +108,8 @@ function Login() {
         <div className={`login-container ${mode !== "login" ? "slide-left" : ""}`}>
           <header>Sign In</header>
           <form onSubmit={onSubmit}>
-            <input
-              type="email"
-              placeholder="Email"
-              className="input-field"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="input-field"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <input type="email" placeholder="Email" className="input-field" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input type="password" placeholder="Password" className="input-field" value={password} onChange={(e) => setPassword(e.target.value)} required />
             <button className="submit">Login</button>
           </form>
         </div>
@@ -129,30 +117,9 @@ function Login() {
         <div className={`register-container ${mode === "register" ? "active" : ""}`}>
           <header>Create account</header>
           <form onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="First name"
-              className="input-field"
-              value={regFirstname}
-              onChange={(e) => setRegFirstname(e.target.value)}
-              required
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="input-field"
-              value={regEmail}
-              onChange={(e) => setRegEmail(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="input-field"
-              value={regPassword}
-              onChange={(e) => setRegPassword(e.target.value)}
-              required
-            />
+            <input type="text" placeholder="First name" className="input-field" value={regFirstname} onChange={(e) => setRegFirstname(e.target.value)} required />
+            <input type="email" placeholder="Email" className="input-field" value={regEmail} onChange={(e) => setRegEmail(e.target.value)} required />
+            <input type="password" placeholder="Password" className="input-field" value={regPassword} onChange={(e) => setRegPassword(e.target.value)} required />
             <button className="submit">Create account</button>
           </form>
         </div>
