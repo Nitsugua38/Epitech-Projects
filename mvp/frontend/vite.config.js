@@ -8,10 +8,18 @@ export default defineConfig({
         host: "0.0.0.0",
         port: 5173,
         proxy: {
-            "/login": {
+            "/user": {
                 target: "http://backend:3000",
                 changeOrigin: true,
-            }
+            },
+            "/post": {
+                target: "http://backend:3000",
+                changeOrigin: true,
+            },
+            "/auth": {
+                target: "http://backend:3000",
+                changeOrigin: true,
+            },
         }
     }
 })

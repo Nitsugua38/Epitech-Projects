@@ -5,7 +5,13 @@ function Messages() {
 
     return (
         <>
-            <div>messages page</div>
+            <div className='section1'>
+                <div className='MessageTopBar'></div>
+            </div>
+
+            <div className='section2'>
+                
+            </div>
         </>
     )
 }

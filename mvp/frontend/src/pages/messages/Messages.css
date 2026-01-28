@@ -1,0 +1,19 @@
+.section1 {
+    position: absolute;
+    top: 2vw;
+    left: 22vw;
+    bottom: 2vw;
+    background-color: #f0ebeb;
+    width: 30vw;
+    border-radius: 50px 0 0 50px;
+}
+
+.section2 {
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    bottom: 2vw;
+    background-color: #f0ebeb;
+    width: 45vw;
+    border-radius: 0 50px 50px 0;
+}
