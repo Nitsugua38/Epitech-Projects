@@ -7,7 +7,7 @@ const salt = bcrypt.genSaltSync(10);
 
 
 router.post("/register", async (req, res) => {
-  if (!req.body.email || !req.body.password || req.body.name) {
+  if (!req.body.email || !req.body.password || !req.body.name) {
     return res.status(400).json({ 
       error: "Tous les champs sont requis : email, password, name." 
     });
