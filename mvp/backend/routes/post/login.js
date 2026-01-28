@@ -4,6 +4,11 @@ const bcrypt = require("bcryptjs");
 const router = express.Router();
 
 router.post("/login", (req, res) => {
+  if (!req.body.email || !req.body.password) {
+    return res.status(400).json({ 
+      error: "Tous les champs sont requis : email, password." 
+    });
+  }
   try {
     db.query(`SELECT ID, email, password FROM user WHERE email=(?) `, [req.body.email] , async (err, row, fields) => {
       if (err) throw err;
