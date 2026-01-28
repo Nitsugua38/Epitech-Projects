@@ -9,4 +9,6 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+CMD ["node", "index.js"]
+
+# CMD ["npm", "run", "start"]
