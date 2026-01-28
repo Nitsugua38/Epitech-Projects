@@ -13,7 +13,7 @@ function NavBar() {
     return (
         <>
             <nav className="navbar">
-                <Link to="/"><img src={home_image}></img><span>Home</span></Link>
+                <Link to="/home"><img src={home_image}></img><span>Home</span></Link>
                 <Link to="/explore"><img src={explore_image}></img><span>Explore</span></Link>
                 <Link to="/notifications"><img src={notification_image}></img><span>Notifications</span></Link>
                 <Link to="/messages"><img src={message_image}></img><span>Messages</span></Link>

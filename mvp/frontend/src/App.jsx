@@ -11,22 +11,37 @@ import Login from "./pages/login/Login.jsx";
 import NavBar from "./common_components/NavBar.jsx";
 
 function App() {
+  const isLoggedIn = !!localStorage.getItem("authToken");
+
   return (
     <BrowserRouter>
-
       <NavBar />
 
       <Routes>
-        {/* Redirect root to signup/login */}
-        <Route path="/" element={<Navigate to="/signin" replace />} />
+        {/* Root path: redirect to login if not logged in */}
+        <Route
+          path="/"
+          element={isLoggedIn ? <Navigate to="/home" replace /> : <Navigate to="/signin" replace />}
+        />
 
+        {/* Home page */}
+        <Route path="/home" element={<Home />} />
+
+        {/* Other pages */}
         <Route path="/explore" element={<Explore />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/messages" element={<Messages />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/signin" element={<Login />} />
-      </Routes>
 
+        {/* Login */}
+        <Route
+          path="/signin"
+          element={isLoggedIn ? <Navigate to="/home" replace /> : <Login />}
+        />
+
+        {/* Catch-all unknown routes */}
+        <Route path="*" element={<Navigate to={isLoggedIn ? "/home" : "/signin"} replace />} />
+      </Routes>
     </BrowserRouter>
   );
 }
