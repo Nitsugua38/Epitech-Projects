@@ -1,6 +1,13 @@
 .profile-page {
-  margin-left: 20vw;
   font-family: Montserrat;
+  border-radius: 50px;
+  background-color: #f0ebeb;
+  position: absolute;
+  top: 2vw;
+  left: 20vw;
+  right: 2vw;
+  bottom: 2vw;
+  overflow: scroll;
 }
 
 .profile-banner {
