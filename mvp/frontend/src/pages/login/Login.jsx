@@ -41,7 +41,7 @@ function Login() {
     setSuccessMessage("");
 
     try {
-      const res = await fetch("http://localhost:5173/auth/login", {
+      const res = await fetch("/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -72,7 +72,7 @@ function Login() {
     setSuccessMessage("");
 
     try {
-      const res = await fetch("http://localhost:5173/user/register", {
+      const res = await fetch("/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
