@@ -1,4 +1,3 @@
-README.md
 # YOWL Project - Pivot
 
 ## Context
