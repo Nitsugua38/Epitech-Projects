@@ -1,27 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Profile.css";
 
 function Profile() {
-
   const [activeTab, setActiveTab] = useState("posts");
+  const [userName, setUserName] = useState("Utilisateur");
 
-  const posts = Array(6).fill().map((_, i) => ({
-    id: i + 1,
-    username: "jane_doe",
-    title: "Design Update",
-    content:
-      "Just completed the new dashboard interface with improved accessibility and responsive layout.",
-    comments: [
-      { text: "Looks amazing!", user: "alice_w", img: "https://via.placeholder.com/32" },
-      { text: "Clean and modern.", user: "bob_m", img: "https://via.placeholder.com/32" }
-    ]
-  }));
+  useEffect(() => {
+    const storedName = localStorage.getItem("userName");
+    if (storedName) setUserName(storedName);
+  }, []);
+
+  const posts = Array(6)
+    .fill()
+    .map((_, i) => ({
+      id: i + 1,
+      username: userName,
+      title: "Design Update",
+      content:
+        "Just completed the new dashboard interface with improved accessibility and responsive layout.",
+      comments: [
+        { text: "Looks amazing!", user: "alice_w", img: "https://via.placeholder.com/32" },
+        { text: "Clean and modern.", user: "bob_m", img: "https://via.placeholder.com/32" }
+      ]
+    }));
 
   const jobs = [
     {
       role: "Senior UI/UX Designer",
       company: "Creative Studio",
-      date: "2022 – Present",
+      date: "2022 - Present",
       description:
         "Led the redesign of multiple SaaS platforms, focusing on accessibility and design systems."
     }
@@ -30,12 +37,12 @@ function Profile() {
   return (
     <div className="profile-page">
       <div className="profile-banner">
-        <div className="banner-username">Username</div>
+        <div className="banner-username">{userName}</div>
       </div>
       <div className="profile-divider"></div>
       <div className="profile-header">
         <div className="profile-avatar"></div>
-        <div className="profile-handle">@username_pizza</div>
+        <div className="profile-handle">@{userName.toLowerCase().replace(/\s+/g, "_")}</div>
       </div>
 
       <div className="profile-sections">
@@ -55,7 +62,7 @@ function Profile() {
 
       {activeTab === "posts" && (
         <div className="profile-horizontal-scroll">
-          {posts.map(post => (
+          {posts.map((post) => (
             <div key={post.id} className="inner-card profile-post-card">
               <div className="post-header">
                 <div className="profile-pic"></div>
@@ -86,7 +93,6 @@ function Profile() {
           ))}
         </div>
       )}
-
     </div>
   );
 }
