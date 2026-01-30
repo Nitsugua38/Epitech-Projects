@@ -37,30 +37,33 @@ function Login() {
   };
 
   const loginUser = async () => {
-    setErrorMessage("");
-    setSuccessMessage("");
+  setErrorMessage("");
+  setSuccessMessage("");
 
-    try {
-      const res = await fetch("/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ email, password }),
-      });
+  try {
+    const res = await fetch("/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({ email, password }),
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (!res.ok) throw new Error(data.msg || "Login failed");
+    if (!res.ok) throw new Error(data.msg || "Login failed");
 
-      if (data.token) localStorage.setItem("authToken", data.token);
-      else localStorage.setItem("authToken", "true"); // fallback si backend ne renvoie pas de token
+    if (data.token) localStorage.setItem("authToken", data.token);
+    else localStorage.setItem("authToken", "true");
 
-      setSuccessMessage(data.msg || "Login successful!");
-      navigate("/home");
-    } catch (err) {
-      setErrorMessage("Login error: " + err.message);
-    }
-  };
+    if (data.name) localStorage.setItem("userName", data.name);
+    else localStorage.setItem("userName", email.split("@")[0]); 
+
+    setSuccessMessage(data.msg || "Login successful!");
+    navigate("/home");
+  } catch (err) {
+    setErrorMessage("Login error: " + err.message);
+  }
+};
 
   const registerUser = async () => {
     if (!regFirstname || !regEmail || !regPassword) {
@@ -84,6 +87,9 @@ function Login() {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.msg || "Registration failed");
+
+      if (data.token) localStorage.setItem("authToken", data.token);
+      if (data.name) localStorage.setItem("userName", data.name);
 
       setSuccessMessage(data.msg || "Account created successfully!");
       setTimeout(() => navigate("/home"), 800);
