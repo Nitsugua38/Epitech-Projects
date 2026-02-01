@@ -3,26 +3,35 @@ import "./Home.css";
 
 function Home() {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [posts, setPosts] = useState([]);
   const userName = localStorage.getItem("userName") || "Utilisateur";
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  const posts = Array(20).fill().map((_, i) => ({
-    id: i + 1,
-    username: userName,
-    title: i % 2 === 0 ? 'Design Update' : 'Code Review',
-    content: i % 2 === 0 
-      ? 'Just completed the new dashboard interface with improved accessibility and responsive layout. Excited to share more soon!'
-      : 'Reviewed the latest pull request — great work on optimizing the component rendering. Added a few suggestions for further improvements in error handling.',
-    comments: [
-      { text: 'Great work, very clean design!', user: 'alice_w', img: 'https://via.placeholder.com/32' },
-      { text: 'I agree, the layout is intuitive.', user: 'bob_m', img: 'https://via.placeholder.com/32' },
-      { text: 'Looking forward to the next update.', user: 'carol_t', img: 'https://via.placeholder.com/32' }
-    ]
-  }));
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch("post/");  
+        const data = await res.json();
+
+        const formattedPosts = data.map(post => ({
+          id: post.id,
+          username: post.userName || userName,  
+          title: post.title,
+          content: post.description,
+          comments: post.comments || []
+        }));
+
+        setPosts(formattedPosts);
+      } catch (err) {
+        console.error("Erreur lors du fetch des posts :", err);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   return (
     <div className={`outer-card ${isVisible ? 'fade-in' : ''}`}>
@@ -61,8 +70,8 @@ function Home() {
                 {post.comments.map((comment, index) => (
                   <div key={index} className="comment-line">
                     <div className="comment-header">
-                      <div className="comment-profile-pic" style={{backgroundImage: `url(${comment.img})`}}></div>
-                      <div className="comment-username">{comment.user}</div>
+                      <div className="comment-profile-pic" style={{backgroundImage: `url(${comment.img || 'https://via.placeholder.com/32'})`}}></div>
+                      <div className="comment-username">{comment.user || "Anonymous"}</div>
                     </div>
                     <div className="comment-text">{comment.text}</div>
                   </div>
