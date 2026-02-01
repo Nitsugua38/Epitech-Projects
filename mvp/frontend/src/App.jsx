@@ -7,7 +7,7 @@ import Notifications from "./pages/notifications/Notifications.jsx";
 import Messages from "./pages/messages/Messages.jsx";
 import Profile from "./pages/profile/Profile.jsx";
 import Login from "./pages/login/Login.jsx";
-
+import Newpost from "./pages/newpost/newpost.jsx";
 import NavBar from "./common_components/NavBar.jsx";
 
 function App() {
@@ -67,6 +67,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/newpost"
+          element={
+            <ProtectedRoute>
+              <Newpost />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/signin" element={<Login />} />
       </Routes>
     </BrowserRouter>
@@ -74,3 +82,4 @@ function App() {
 }
 
 export default App;
+

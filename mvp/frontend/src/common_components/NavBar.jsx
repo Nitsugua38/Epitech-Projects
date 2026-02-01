@@ -15,8 +15,12 @@ function NavBar() {
       <Link to="/notifications"><img src={notification_image} alt="Notifications"/><span>Notifications</span></Link>
       <Link to="/messages"><img src={message_image} alt="Messages"/><span>Messages</span></Link>
       <Link to="/profile"><img src={profile_image} className='profileNavImg' alt="Profile"/><span className='profileNavSpan'>Profile</span></Link>
+      <Link to="/newpost" className="newpost-link">
+        <span>New Post</span>
+      </Link>
     </nav>
   );
 }
 
 export default NavBar;
+
