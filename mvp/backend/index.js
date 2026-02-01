@@ -16,6 +16,10 @@ const GetPostById = require("./routes/get/post_id.js");
 const GetUser = require("./routes/get/user.js");
 const GetUserPost = require("./routes/get/user_post.js");
 const GetUserByIdOrEmail = require("./routes/get/user:id_:email.js");
+
+const UpdateLikeCount = require("./routes/put/add_like_count.js");
+const DecreaseLikeCount = require("./routes/put/decrease_like_count.js");
+
 const bodyParser = require('body-parser')
 
 app.use(express.json());
@@ -39,7 +43,9 @@ app.use("/post", GetPostById);
 app.use("/user", GetUser);
 app.use("/user", GetUserPost);
 app.use("/user", GetUserByIdOrEmail);
-
+//PUT
+app.use("/AddLike", UpdateLikeCount);
+app.use("/RemoveLike", DecreaseLikeCount);
 
 app.listen(PORT, () => {
     console.log(`Backend running on port ${PORT}`);
