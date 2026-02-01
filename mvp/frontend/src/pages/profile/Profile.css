@@ -8,6 +8,7 @@
   right: 2vw;
   bottom: 2vw;
   overflow: scroll;
+  padding-bottom: 50px;
 }
 
 .profile-banner {
@@ -46,7 +47,6 @@
   z-index: 2;
 }
 
-
 .profile-handle {
   position: absolute;
   left: calc(2vw + 116px);
@@ -66,6 +66,7 @@
   display: flex;
   gap: 40px;
   padding: 24px 2vw 16px;
+  flex-wrap: wrap;
 }
 
 .profile-sections h2 {
@@ -84,11 +85,13 @@
   gap: 24px;
   overflow-x: auto;
   padding: 0 2vw 24px;
+  flex-wrap: wrap;
 }
 
 .profile-post-card {
   min-width: 480px;
   max-width: 480px;
+  flex: 1 1 auto;
 }
 
 .job-history {
@@ -102,30 +105,118 @@
   border: 2px solid #e0e0e0;
 }
 
-.banner-username-logout {
+.comment-line {
+  margin-top: 12px;
+}
+
+.comment-header {
   display: flex;
   align-items: center;
-  justify-content: flex-start;  
-  gap: 16px;
-  position: absolute;
-  left: 2vw;
-  bottom: -35px;
-  width: calc(100% - 4vw);  
+  gap: 8px;
 }
 
-.delete-post-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  color: #000;
-  cursor: pointer;
-  z-index: 5;
+.comment-profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
 }
 
-.delete-post-btn:hover {
-  color: #ff4d4f;  
+.comment-username {
+  font-weight: 600;
 }
 
+.comment-text {
+  margin-left: 40px;
+}
+
+@media (max-width: 1200px) {
+  .profile-page {
+    left: 5vw;
+    right: 5vw;
+    border-radius: 30px;
+  }
+
+  .profile-post-card {
+    min-width: 350px;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    left: 2vw;
+    right: 2vw;
+    top: 1vw;
+    bottom: 2vw;
+    border-radius: 20px;
+  }
+
+  .profile-banner {
+    height: 120px;
+  }
+
+  .banner-username {
+    font-size: 1.5rem;
+    left: 5vw;
+    bottom: -25px;
+  }
+
+  .profile-header {
+    margin-top: -50px;
+    height: 90px;
+  }
+
+  .profile-avatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .profile-handle {
+    left: calc(2vw + 92px);
+    font-size: 1rem;
+    bottom: -4px;
+  }
+
+  .profile-post-card {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+
+  .profile-sections {
+    gap: 20px;
+    padding: 16px 2vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-banner {
+    height: 100px;
+  }
+
+  .banner-username {
+    font-size: 1.2rem;
+    bottom: -20px;
+  }
+
+  .profile-header {
+    height: 80px;
+  }
+
+  .profile-avatar {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-handle {
+    left: calc(2vw + 76px);
+    font-size: 0.9rem;
+    bottom: -3px;
+  }
+
+  .profile-post-card {
+    min-width: 95vw;
+    max-width: 95vw;
+  }
+}
