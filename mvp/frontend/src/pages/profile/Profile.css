@@ -102,22 +102,30 @@
   border: 2px solid #e0e0e0;
 }
 
-@media (max-width: 768px) {
-  .profile-page {
-    left: 2vw;
-    right: 2vw;
-    border-radius: 20px;
-    bottom: 80px;
-  }
-
-  .profile-post-card {
-    min-width: 90vw;
-    max-width: 90vw;
-  }
-
-
-  .banner-username {
-    font-size: 1.5rem;
-    left: 30vw;
-  }
+.banner-username-logout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;  
+  gap: 16px;
+  position: absolute;
+  left: 2vw;
+  bottom: -35px;
+  width: calc(100% - 4vw);  
 }
+
+.delete-post-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #000;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.delete-post-btn:hover {
+  color: #ff4d4f;  
+}
+
