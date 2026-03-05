@@ -123,7 +123,6 @@ B-DAT-201-PAR-2-1-nextbuy-7/
 
 - **User features**: order frequency, avg basket size, preferred times
 - **Product features**: popularity, reorder rate
-- **Order features**: days since last order, sequence number
 
 ### 4. ML Models
 
@@ -151,7 +150,7 @@ B-DAT-201-PAR-2-1-nextbuy-7/
 ### Prerequisites
 
 ```bash
-pip install pandas numpy matplotlib seaborn scikit-learn
+pip install -r requirements.txt
 ```
 
 ### Running the Notebook
