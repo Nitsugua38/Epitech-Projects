@@ -69,14 +69,26 @@ Datasets are located in the `../datasets/` directory (parent folder).
 
 ```
 B-DAT-201-PAR-2-1-nextbuy-7/
-├── datasets/                  # Raw data files (in parent folder)
+├── datasets/                     # Raw CSV files
 │   ├── orders.csv
 │   ├── order_products.csv
 │   ├── products.csv
 │   ├── aisles.csv
 │   └── departments.csv
-├── notebook.ipynb             # Main analysis & models
-└── README.md                 # This file
+├── processed/                    # Processed Parquet files
+│   ├── full_data.parquet
+│   ├── full_data_engineered.parquet
+│   └── customer_segments.parquet
+├── data_preprocessing_notebook.ipynb
+├── eda_notebook.ipynb
+├── business_insights_notebook.ipynb
+├── business_insights_bonus_notebook.ipynb
+├── feature_engineering_notebook.ipynb
+├── reorder_model_notebook.ipynb
+├── cart_size_model_notebook.ipynb
+├── dnn_reorder_model.ipynb
+├── Customer_Segmentation.ipynb
+└── README.md
 ```
 
 ## Git Branch Strategy
@@ -101,6 +113,7 @@ B-DAT-201-PAR-2-1-nextbuy-7/
 - **matplotlib / seaborn** - Data visualization
 - **scikit-learn** - Machine learning
 - **xgboost / lightgbm** - Gradient boosting
+- **TensorFlow/Keras** - Deep learning
 
 ## Methodology
 
@@ -126,7 +139,7 @@ B-DAT-201-PAR-2-1-nextbuy-7/
 
 ### 4. ML Models
 
-#### Model 1: Reorder Prediction
+#### Model 1: Reorder Prediction (Logistic Regression / Random Forest)
 
 - **Type**: Binary Classification
 - **Target**: `reordered` (0/1)
@@ -139,6 +152,14 @@ B-DAT-201-PAR-2-1-nextbuy-7/
 - **Target**: Number of products per order
 - **Models**: Linear Regression, Gradient Boosting
 - **Metrics**: RMSE, MAE, R²
+
+#### Model 3: Deep Neural Network (Reorder Prediction)
+
+- **Type**: Binary Classification
+- **Target**: `reordered` (0/1)
+- **Architecture**: Wide & Deep Network with embeddings
+- **Features**: User, Product, Order context
+- **Metrics**: AUC-ROC, Accuracy, F1
 
 ### 5. Customer Segmentation
 
@@ -153,11 +174,19 @@ B-DAT-201-PAR-2-1-nextbuy-7/
 pip install -r requirements.txt
 ```
 
-### Running the Notebook
+### Running the Notebooks
 
-```bash
-jupyter notebook notebook.ipynb
-```
+Execute notebooks in the following order:
+
+1. **data_preprocessing_notebook.ipynb** - Clean and merge data
+2. **eda_notebook.ipynb** - Exploratory analysis
+3. **business_insights_notebook.ipynb** - Business insights (Q1-8)
+4. **business_insights_bonus_notebook.ipynb** - Bonus insights (Q9-16)
+5. **feature_engineering_notebook.ipynb** - Create ML features
+6. **reorder_model_notebook.ipynb** - Reorder prediction (baseline)
+7. **cart_size_model_notebook.ipynb** - Cart size prediction (baseline)
+8. **dnn_reorder_model.ipynb** - Deep learning reorder prediction
+9. **Customer_Segmentation.ipynb** - K-Means clustering
 
 ### Bonus Features
 
