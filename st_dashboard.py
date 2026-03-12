@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 
 
 bool_eda = False
+bool_pred = False
+bool_cart_size = False
 
 
 
@@ -18,13 +20,14 @@ st.header("Dynamic EDA")
 
 
 
-modelFile = st.file_uploader("Please upload the dataset file [full_data.parquet] here", type="parquet", max_upload_size=500)
-if modelFile is None:
+pFile = st.file_uploader("Please upload the dataset file [full_data.parquet] here", type="parquet", max_upload_size=500)
+
+if pFile is None:
     st.info("Waiting for dataset...")
 
 else:
     st.divider()
-    full_data = pd.read_parquet(modelFile)
+    full_data = pd.read_parquet(pFile)
     bool_eda = True
 
 
@@ -33,7 +36,7 @@ else:
 
 
 
-if bool_eda:
+if bool_eda and not bool_pred and not bool_cart_size:
     st.sidebar.header("Filters")
     st.sidebar.text("Day of Week")
     checkMonday = st.sidebar.checkbox("Monday", True)
@@ -211,3 +214,110 @@ if bool_eda:
         plt.ylabel('Frequency')
         plt.xlim(0, 80)
         st.pyplot(plot8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+elif not bool_eda:
+
+    st.divider()
+
+    st.header("Reordering prediction")
+
+
+
+    
+    modelFile = st.file_uploader("Please upload the model export file [..._model.joblib] here", type="joblib", max_upload_size=1000)
+    
+    if modelFile is None:
+        st.info("Waiting for model...")
+
+    else:
+        st.divider()
+        bool_pred = True
+        model = joblib.load(modelFile)
+
+
+
+
+
+    if bool_pred:
+
+        addToCartOrder = st.number_input("Product position in the cart", min_value=1)
+        orderNumber = st.number_input("User's order sequence number", min_value=1)
+        daysSincePriorOrder = st.number_input("Number of days since last order", min_value=0)
+        productBuysCount = st.number_input("Number of times this product was bought in total", min_value=1)
+
+        if st.button("Predict reorder"):
+            inputData = pd.DataFrame({"add_to_cart_order": [addToCartOrder], "order_number": [orderNumber], "days_since_prior_order": [daysSincePriorOrder], "product_buys_count": [productBuysCount]})
+            prediction = model.predict(inputData)
+            
+            if prediction[0] == 0.0:
+                st.warning("This product will probably not be reordered.")
+            if prediction[0] == 1.0:
+                st.success("This product will probably be reordered.")
+
+
+
+
+    
+
+    st.divider()
+
+    st.header("Cart size prediction")
+
+
+
+    
+    model2File = st.file_uploader("Please upload the model export file [..._model.joblib] here", type="joblib", max_upload_size=10000)
+    
+    if model2File is None:
+        st.info("Waiting for model...")
+
+    else:
+        st.divider()
+        bool_cart_size = True
+        model2 = joblib.load(model2File)
+
+
+
+
+
+    if bool_cart_size:
+
+        order_hour_of_day = st.number_input("Order Hour of day", min_value=0, max_value=24)
+        order_dow = st.selectbox("Order Day of week", ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
+        days_since_prior_order = st.number_input("Number of days since last order", min_value=0)
+        order_number = st.number_input("User's order sequence number", min_value=1)
+        order_frequency = st.number_input("User's avg days between orders", min_value=0)
+        avg_basket_size = st.number_input("User's historical avg basket size", min_value=1)
+        user_total_orders = st.number_input("User's total order count", min_value=1)
+
+
+
+
+        if st.button("Predict reorder"):
+
+            is_weekend = 1 if order_dow in ["Saturday", "Sunday"] else 0
+            is_morning = 1 if 6 <= order_hour_of_day and order_hour_of_day < 12 else 0
+            is_afternoon = 1 if 12 <= order_hour_of_day and order_hour_of_day < 19 else 0
+            is_evening = 1 if 19 <= order_hour_of_day and order_hour_of_day < 24 else 0
+            is_first_order = 1 if order_number == 1 else 0
+            order_ratio = order_number / user_total_orders
+
+            order_dow = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"].index(order_dow)
+
+            inputData2 = pd.DataFrame({"order_hour_of_day": [order_hour_of_day], "order_dow": [order_dow], "days_since_prior_order": [days_since_prior_order], "order_number": [order_number], "order_frequency": [order_frequency], "avg_basket_size": [avg_basket_size], "is_weekend": [is_weekend], "is_morning": [is_morning], "is_afternoon": [is_afternoon], "is_evening": [is_evening], "user_total_orders": [user_total_orders], "order_ratio": [order_ratio], "is_first_order": [is_first_order]})
+            prediction2 = model2.predict(inputData2)
+            
+            st.success(f"The cart size for this order will probably be: {prediction2[0]:.0f} products.")
