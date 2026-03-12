@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 
 bool_eda = False
+bool_pred = False
 
 
 
@@ -18,13 +19,14 @@ st.header("Dynamic EDA")
 
 
 
-modelFile = st.file_uploader("Please upload the dataset file [full_data.parquet] here", type="parquet", max_upload_size=500)
-if modelFile is None:
+pFile = st.file_uploader("Please upload the dataset file [full_data.parquet] here", type="parquet", max_upload_size=500)
+
+if pFile is None:
     st.info("Waiting for dataset...")
 
 else:
     st.divider()
-    full_data = pd.read_parquet(modelFile)
+    full_data = pd.read_parquet(pFile)
     bool_eda = True
 
 
@@ -33,7 +35,7 @@ else:
 
 
 
-if bool_eda:
+if bool_eda and not bool_pred:
     st.sidebar.header("Filters")
     st.sidebar.text("Day of Week")
     checkMonday = st.sidebar.checkbox("Monday", True)
@@ -211,3 +213,53 @@ if bool_eda:
         plt.ylabel('Frequency')
         plt.xlim(0, 80)
         st.pyplot(plot8)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+elif not bool_eda:
+
+    st.header("Reordering prediction")
+
+
+
+    
+    modelFile = st.file_uploader("Please upload the model export file [..._model.joblib] here", type="joblib", max_upload_size=1000)
+    
+    if modelFile is None:
+        st.info("Waiting for model...")
+
+    else:
+        st.divider()
+        bool_pred = True
+        model = joblib.load(modelFile)
+
+
+
+
+
+    if bool_pred:
+
+        addToCartOrder = st.number_input("Product position in the cart", min_value=1)
+        orderNumber = st.number_input("User's order sequence number", min_value=1)
+        daysSincePriorOrder = st.number_input("Number of days since last order", min_value=0)
+        productBuysCount = st.number_input("Number of times this product was bought in total", min_value=1)
+
+        if st.button("Predict reorder"):
+            inputData = pd.DataFrame({"add_to_cart_order": [addToCartOrder], "order_number": [orderNumber], "days_since_prior_order": [daysSincePriorOrder], "product_buys_count": [productBuysCount]})
+            prediction = model.predict(inputData)
+            
+            if prediction[0] == 0.0:
+                st.warning("This product will probably not be reordered.")
+            if prediction[0] == 1.0:
+                st.success("This product will probably be reordered.")
