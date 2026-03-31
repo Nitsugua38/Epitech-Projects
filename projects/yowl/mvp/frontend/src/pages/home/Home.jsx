@@ -1,0 +1,88 @@
+import { useState, useEffect } from 'react';
+import "./Home.css";
+
+function Home() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const userName = localStorage.getItem("userName") || "Utilisateur";
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch("post/");  
+        const data = await res.json();
+
+        const formattedPosts = data.map(post => ({
+          id: post.id,
+          username: post.userName || userName,  
+          title: post.title,
+          content: post.description,
+          comments: post.comments || []
+        }));
+
+        setPosts(formattedPosts);
+      } catch (err) {
+        console.error("Erreur lors du fetch des posts :", err);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  return (
+    <div className={`outer-card ${isVisible ? 'fade-in' : ''}`}>
+      <div className="inner-content">
+        {posts.map(post => (
+          <div key={post.id} className="inner-card">
+            <div className="post-header">
+              <div className="profile-pic"></div>
+              <div className="user-info">
+                <div className="username">{post.username}</div>
+                <div className="post-title">
+                  {post.title}
+                  <div className="action-buttons">
+                    <button className="action-btn">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#666">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                      </svg>
+                    </button>
+                    <button className="action-btn">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#666">
+                        <path d="M21.99 4c0-1.1-.89-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                      </svg>
+                    </button>
+                    <button className="action-btn">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#666">
+                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="post-content-wrapper">
+              <div className="post-field">{post.content}</div>
+              <div className="top-comments">
+                {post.comments.map((comment, index) => (
+                  <div key={index} className="comment-line">
+                    <div className="comment-header">
+                      <div className="comment-profile-pic" style={{backgroundImage: `url(${comment.img || 'https://via.placeholder.com/32'})`}}></div>
+                      <div className="comment-username">{comment.user || "Anonymous"}</div>
+                    </div>
+                    <div className="comment-text">{comment.text}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Home;
