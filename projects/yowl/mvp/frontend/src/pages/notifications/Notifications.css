@@ -1,0 +1,146 @@
+#TopBar {
+    display: flex;
+    gap: 4vw;
+    padding: 20px 4vw;
+    background-color: #f0ebeb;
+    position: fixed;
+    top: 2vw;
+    left: 23vw;
+    right: 2vw;
+    border-radius: 50px;
+    font-family: Montserrat;
+    font-size: 15px;
+}
+
+#TopBar div {
+    border: 2px solid #7a7878;
+    border-radius: 50px;
+    padding: 7px 15px;
+    cursor: pointer;
+    color: black;
+}
+
+.activeTAB {
+    background-color: #7a7878;
+    color: white !important;
+    font-weight: 700;
+}
+
+
+@media (max-width: 768px) {
+    #TopBar {
+        gap: 3vw;
+        padding: 12px 4vw;
+        top: 3vh;
+        left: 2vw;
+        font-size: 12px;
+    }
+
+    #TopBar div {
+        padding: 7px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 4vw;
+    background-color: #f0ebeb;
+    position: fixed;
+    top: 150px;
+    bottom: 2vw;
+    left: 23vw;
+    right: 2vw;
+    border-radius: 50px;
+    font-family: Montserrat;
+    font-size: 15px;
+    overflow: scroll;
+}
+
+
+
+
+
+
+.oneNotif {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 10px;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100px !important;
+}
+
+.profilePic {
+    width: 40px;
+}
+
+.postThumb {
+    width: 60px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.oneNotif span {
+    width: 80%;
+}
+
+.followBtn {
+    background-color: #7a7878;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+
+
+@media (max-width: 768px) {
+    main {
+        padding: 0px 4vw;
+        top: 90px;
+        bottom: 80px;
+        left: 2vw;
+        right: 2vw;
+        border-radius: 30px;
+        font-size: 11px;
+    }
+
+    .oneNotif {
+        height: 60px !important;
+    }
+
+
+    .profilePic {
+        width: 30px;
+    }
+
+    .postThumb {
+        width: 40px;
+    }
+
+    .oneNotif span {
+        width: 80%;
+        height: 30px;
+        overflow: hidden;
+        align-content: center;
+    }
+
+    .followBtn {
+        padding: 7px 10px;
+    }
+}
