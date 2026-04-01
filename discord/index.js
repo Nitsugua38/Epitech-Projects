@@ -1,9 +1,13 @@
+const { execSync } = require("child_process");
 const { executeCommand } = require("./prompt.js");
 const dotenv = require("dotenv");
 dotenv.config();
 
+// --------- DISCORD ----------
+
 // Import Discord.js and create a "client" = bot instance
 const { Client, GatewayIntentBits, Events } = require('discord.js');
+const { setupRAG } = require("./rag.js");
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 
@@ -32,7 +36,49 @@ process.on('uncaughtException', error => {
 
 
 
+((async () => {
+    console.log("Initialisation de LexBot RAG... Veuillez patienter...");
+    await setupRAG();
 
-// Login to Discord with the bot token
-client.login(process.env.TOKEN);
+    // --------- OLLAMA CHECKS AND START ----------
+
+    console.log("Vérification d'Ollama...")
+    try {
+    
+        execSync("ollama ps", { stdio: "inherit" });
+
+    } catch (err) {
+    
+        try {
+
+            console.log("Démarrage d'Ollama...");
+            execSync("sudo systemctl start ollama", { stdio: "inherit" });
+
+        } catch (err) {
+            console.error(err);
+            process.exit(1);
+        }
+
+    } finally {
+        
+        try {
+
+            console.log("Vérification du modèle...");
+            execSync(`ollama pull mistral`, { stdio: "inherit" });
+            console.log("Ollama est prêt!");
+
+        } catch (err) {
+            console.error(err);
+            process.exit(1);
+        }
+
+    }
+
+
+    // Login to Discord with the bot token 
+    client.login(process.env.TOKEN);
+
+})());
+
+
 module.exports = client;
