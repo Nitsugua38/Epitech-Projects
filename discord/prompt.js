@@ -1,5 +1,7 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const { PDFParse } = require("pdf-parse");
+
+const { handleChat } = require("./lexbot.js");
 
 
 const executeCommand = async (interaction) => {
@@ -23,17 +25,11 @@ const executeCommand = async (interaction) => {
     }
 
 
+    const pdtCONTEXT = pdfExtractedText != "" ? `Voici le contenu du PDF dont je dispose :\n${pdfExtractedText.text}` : "";
 
+    const response = await handleChat(userID, `${prompt}\n${pdtCONTEXT}`);
 
-
-
-
-
-
-
-
-
-    await interaction.editReply(`Requête reçue : ${prompt}\n${file ? `Vous avez envoyé un fichier : ${file.url}\n${pdfExtractedText.text}` : "Vous n'avez pas envoyé de ficher"}`);
+    await interaction.editReply({embeds: [new EmbedBuilder().setTitle(`Consultation LexBot`).setDescription(response.substring(0, 4096))] });
 
 }
 
