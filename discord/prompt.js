@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-
+const { PDFParse } = require("pdf-parse");
 
 
 const executeCommand = async (interaction) => {
@@ -8,7 +8,32 @@ const executeCommand = async (interaction) => {
     const file = interaction.options.getAttachment("file");
     const userID = interaction.user.id;
 
-    interaction.reply(`Requête reçue : ${prompt}\n${file ? `Vous avez envoyé un fichier : ${file.url}` : "Vous n'avez pas envoyé de ficher"}\nVotre ID : ${userID}`);
+    // Tells Discord to wait before responding, avoiding to timeout.
+    await interaction.deferReply();
+
+
+    pdfExtractedText = "";
+
+    // Converts PDF to JSON for the model
+    if (file && file.contentType === "application/pdf") {
+        
+        const pdfParser = new PDFParse({url: file.url});
+        pdfExtractedText = await pdfParser.getText();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    await interaction.editReply(`Requête reçue : ${prompt}\n${file ? `Vous avez envoyé un fichier : ${file.url}\n${pdfExtractedText.text}` : "Vous n'avez pas envoyé de ficher"}`);
 
 }
 
