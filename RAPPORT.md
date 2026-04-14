@@ -1,102 +1,90 @@
-# LexBot — Rapport Marketing & Éthique
-**Projet ELIZA — Epitech**
-*"Vos droits, expliqués simplement."*
+# LexBot — Marketing & Ethics Report
+**ELIZA project — Epitech**
+*"Your rights, explained simply."*
 
 ---
 
-## 1. Stratégie Marketing
+## 1. Marketing & Business strategy
 
-### 1.1 Cibles identifiées
+LexBot is a legal assistant AI chatbot. Our goal is to make French laws and regulations accessible and easy to understand for everyone, while focusing on data privacy.
 
-**Cible principale — Les particuliers en difficulté juridique**
-Des millions de Français font face chaque année à des litiges courants : bailleur qui refuse de restituer la caution, licenciement abusif, produit défectueux. La plupart ne consultent jamais un avocat par peur du coût ou par manque d'information. LexBot s'adresse à ces personnes qui ont besoin d'une réponse claire, rapide et gratuite pour comprendre leurs droits et savoir comment réagir.
 
-**Cible secondaire — Les TPE/PME sans service juridique**
-Les petites entreprises (moins de 50 salariés) n'ont généralement pas de juriste en interne. Elles ont besoin d'aide pour rédiger ou vérifier leurs CGV, s'assurer de leur conformité RGPD, ou comprendre un contrat fournisseur. LexBot peut jouer le rôle d'un premier filtre juridique avant de solliciter un avocat.
+
+### 1.1. Target users
+
+- Private individuals: they often have trouble finding and understanding relevant legal informations, and this usually leads to a lot of confusion.
+- S.M.B / Start-ups: simple legal appointments often result in high costs that could be avoided.
+- Legal advice organisations: they often have too many appointment requests for simple matters that could be resolved through automation.
+
+
+### 1.2. Our chatbot objectives
+
+- Vulgarize legal texts and make them accessible.
+- Answer legal questions with a context tailored to the user.
+- Automate the provision of legal informations.
+
+
+<br>
+
+#### 1.3.1. Value chain
+
+**Scenario 1 - The traditional way:**
+
+---
+1. User searches on Google or Legifrance (too many info, hard to understand)
+2. User goes through dozens of articles trying to find the relevant info (2+ hours)
+3. User tries to understand if the law applies to his specific case (high chance of being wrong)
+4. User takes action or decides to contact a lawyer (200€-500€ /hour in Paris)
+5. User data are shared with third-parties or processed by US-based companies
+
+=> The process is long, stressful and costy
 
 ---
 
-### 1.2 Besoins identifiés
+**Scenario 2 - The LexBot way:**
 
-| Besoin | Particuliers | PME |
-|---|---|---|
-| Comprendre ses droits rapidement | ✅ | ✅ |
-| Réduire les coûts d'accès au conseil juridique | ✅ | ✅ |
-| Analyser un document (bail, contrat) | ✅ | ✅ |
-| Vérifier la conformité de CGV / RGPD | ❌ | ✅ |
-| Disponibilité 24h/24, sans rendez-vous | ✅ | ✅ |
-| Confidentialité des échanges | ✅ | ✅ |
+---
+1. User asks a question in his own terms on Discord (accessible)
+2. LexBot instantly retrieves relevant info in his legal texts database
+3. LexBot replies simply with references (<20 seconds)
+4. User data is kept private and local
+
+=> The process is super fast and much cheaper.
 
 ---
 
-### 1.3 Objectifs du chatbot
 
-| Objectif | Description |
-|---|---|
-| **Acquisition** | Attirer des utilisateurs via Discord (communautés de locataires, auto-entrepreneurs, étudiants en droit) |
-| **Rétention** | Maintenir l'engagement avec le modèle freemium (10 messages gratuits, puis Pro) |
-| **Automation** | Répondre automatiquement à 80% des questions juridiques courantes sans intervention humaine |
-| **Communication** | Positionner LexBot comme une marque de confiance dans l'accès au droit |
+#### 1.3.2. Business impact
 
----
+- Much faster response time since users no longer need appointments nor having to spend hours of research.
+- Lower costs: free or premium tier (10€ /m) instead of 200€+ for an appointment or hiring a lawyer.
+- Available 24/7 and accessible through Discord to target younger audiences.
+- Confidential: data is processed locally in France.
 
-### 1.4 Valeur ajoutée & Chaîne de valeur
 
-```
-Utilisateur pose une question juridique
-        ↓
-LexBot détecte le domaine (bail, travail, conso...)
-        ↓
-Le système RAG recherche dans les codes de loi français (Code civil, Code pénal...)
-        ↓
-Mistral génère une réponse personnalisée citant les articles pertinents
-        ↓
-L'utilisateur reçoit en quelques secondes une réponse claire avec références légales
-        ↓
-Valeur créée : compréhension des droits, décision éclairée, économie de temps et d'argent
-```
+<br>
 
-**Avantage compétitif clé :** LexBot tourne 100% en local (Ollama + Mistral). Les échanges ne transitent par aucun serveur tiers. C'est un argument fort en matière de confidentialité, particulièrement pour des questions sensibles (licenciement, litiges personnels).
+### 1.4. Return on Investment
 
----
+$ \text{Business ROI} = \frac{\text{Subscription Revenue} - \text{Ollama server cost}} {\text{Ollama server cost}} $
 
-### 1.5 Indicateurs de Performance (KPIs)
+Key Performance Indicators:
 
-| KPI | Définition | Objectif cible |
-|---|---|---|
-| **Taux de résolution** | % de questions auxquelles LexBot apporte une réponse pertinente | > 75% |
-| **Temps de réponse moyen** | Délai entre la question et la réponse complète | < 30 secondes |
-| **Sessions actives / jour** | Nombre d'utilisateurs uniques utilisant le bot | > 50 à J+30 |
-| **Taux de conversion Freemium → Pro** | % d'utilisateurs dépassant la limite gratuite | > 10% |
-| **Score de satisfaction** | Notation utilisateur post-conversation (1-5) | > 4/5 |
-| **Documents PDF analysés / semaine** | Usage de la fonctionnalité RAG + PDF | > 20 |
+- User engagement (measured by number of interactions per user)
+- Customer Retention Rate (measured by number of returning users)
+- Premium Conversion Rate (measured by number of users subscribing to the Pro version after reaching the 10 messages limit)
+- LexBot Efficiency (measured through customer satisfaction)
+
+
+
+
+<br><br>
+
+
 
 ---
 
-### 1.6 Retour sur Investissement (ROI)
-
-**Coût d'une consultation classique :**
-- Avocat en cabinet : 150 à 300 € / heure
-- Consultation téléphonique avec une association (ADIL, UFC-Que Choisir) : délai de plusieurs jours
-- Juriste freelance : 80 à 150 € / heure
-
-**Valeur générée par LexBot :**
-- Réponse en < 30 secondes, disponible 24h/24
-- 10 consultations gratuites par utilisateur
-- Version Pro (illimitée) : valeur estimée à 10–20 € / mois vs 150–300 € pour une seule consultation
-
-**Estimation ROI pour 100 utilisateurs actifs / mois :**
-
-| Scénario | Sans LexBot | Avec LexBot | Économie |
-|---|---|---|---|
-| 100 questions à un avocat (1h chacune) | 15 000 € | 0 € (freemium) | **15 000 €** |
-| 10 utilisateurs Pro à 15 €/mois | — | 150 € de revenus | ROI positif dès J+1 |
-
-> Pour une PME, une seule analyse de CGV ou de contrat fournisseur évitée représente une économie de 300 à 500 €. LexBot se rentabilise après une seule utilisation professionnelle.
-
----
-
-## 2. Considérations Éthiques
+## 2. Ethics considerations - (WIP)
 
 ### 2.1 LexBot ne remplace pas un avocat
 
