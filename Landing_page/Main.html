@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eliza — Discord Server</title>
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+<div class="cercle">
+    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+        <rect width="64" height="64" rx="14" fill="#111"/>
+        <line x1="32" y1="10" x2="32" y2="14" stroke="#4f8ef7" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="32" cy="7.5" r="2.5" fill="#4f8ef7"/>
+        <rect x="18" y="14" width="28" height="19" rx="5" fill="#0d1117" stroke="#4f8ef7" stroke-width="1.5"/>
+        <circle cx="26" cy="22.5" r="3.2" fill="#4f8ef7"/>
+        <circle cx="38" cy="22.5" r="3.2" fill="#4f8ef7"/>
+        <circle cx="27.3" cy="21.3" r="1.1" fill="white" opacity=".65"/>
+        <circle cx="39.3" cy="21.3" r="1.1" fill="white" opacity=".65"/>
+        <rect x="26" y="28.5" width="12" height="2" rx="1" fill="#4f8ef7" opacity=".5"/>
+        <rect x="30.5" y="33" width="3" height="3" rx="1" fill="#4f8ef7"/>
+        <rect x="5" y="35.5" width="54" height="2.5" rx="1.25" fill="#4f8ef7"/>
+        <line x1="10" y1="38" x2="10" y2="44" stroke="#4488cc" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="54" y1="38" x2="54" y2="44" stroke="#4488cc" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4 44 Q10 54 16 44" stroke="#4f8ef7" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M48 44 Q54 54 60 44" stroke="#4f8ef7" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="30.5" y="38" width="3" height="17" rx="1" fill="#2a2a2a"/>
+        <rect x="22" y="55" width="20" height="3.5" rx="1.75" fill="#4f8ef7"/>
+    </svg>
+</div>
+
+<div class="law-card">
+    <h1 class="firm-name">LEXBOT</h1>
+    <p class="subtitle">Serveur discord officiel</p>
+    <div class="divider"></div>
+    <p class="body-text">Vous êtes invités à rejoindre notre serveur discord Eliza.</p>
+    <p class="body-note">Tout le monde est bienvenue.</p>
+    <div class="divider"></div>
+    <a class="serv-btn" href="https://discord.gg/rtU5CCu5" target="_blank">Accéder au serveur</a>
+</div>
+
+<section id="fonctionnalites">
+    <p class="section-label">Fonctionnalités</p>
+    <h2>Un juriste disponible<br>24h/24, sans rendez-vous.</h2>
+    <p class="section-desc">LexBot analyse vos questions et les ancre dans les textes officiels du droit français — Code civil, Code pénal, Code du travail. Pas d'interprétation hasardeuse : chaque réponse cite ses sources.</p>
+
+    <div class="grid">
+        <div class="feature-card">
+            <div></div>
+            <h3>Analyse juridique instantanée</h3>
+            <p>Posez n'importe quelle question sur vos droits (bail, licenciement, consommation) et obtenez une réponse en moins de 30 secondes avec les articles de loi cités.</p>
+        </div>
+        <div class="feature-card">
+            <div></div>
+            <h3>Lecture de documents</h3>
+            <p>Importez un bail, un contrat ou une mise en demeure. LexBot les analyse via RAG et identifie les clauses potentiellement problématiques.</p>
+        </div>
+        <div class="feature-card">
+            <div></div>
+            <h3>Confidentialité totale</h3>
+            <p>Aucune donnée ne transite par un serveur tiers. LexBot tourne entièrement en local (Ollama + Mistral). Vos échanges restent sur la machine hôte.</p>
+        </div>
+        <div class="feature-card">
+            <div></div>
+            <h3>Conformité CGV & RGPD</h3>
+            <p>Pour les TPE/PME, LexBot joue le rôle d'un premier filtre : vérification de CGV, analyse de contrats fournisseurs, identification des risques de non-conformité.</p>
+        </div>
+        <div class="feature-card">
+            <div></div>
+            <h3>Ancré dans le droit français</h3>
+            <p>Le système RAG recherche directement dans les codes de loi officiels indexés. LexBot ne cite jamais un article qui n'est pas dans ses sources.</p>
+        </div>
+        <div class="feature-card">
+            <div></div>
+            <h3>Orientation vers les experts</h3>
+            <p>Pour les cas complexes, LexBot oriente vers les ressources officielles : ADIL, service-public.fr, Défenseur des droits. Il sait quand s'arrêter.</p>
+        </div>
+    </div>
+</section>
+
+<section id="comment-ca-marche">
+    <p class="section-label">Comment ça marche</p>
+    <h2>De votre question<br>à la réponse citée.</h2>
+
+    <div class="steps">
+        <div class="step">
+            <h3>Vous posez votre question sur Discord</h3>
+            <p>LexBot détecte automatiquement le domaine juridique concerné : bail, droit du travail, consommation, droit des sociétés…</p>
+        </div>
+        <div class="step">
+            <h3>Le RAG recherche dans les textes officiels</h3>
+            <p>Le système cherche dans les codes de loi français indexés les articles et extraits les plus pertinents pour votre situation.</p>
+        </div>
+        <div class="step">
+            <h3>Mistral génère une réponse personnalisée</h3>
+            <p>Le modèle de langage rédige une réponse claire, en français, en citant les articles sources — vérifiables par vous à tout moment.</p>
+        </div>
+        <div class="step">
+            <h3>Vous recevez une réponse en quelques secondes</h3>
+            <p>Compréhension de vos droits, décision éclairée, économie de temps et d'argent. Sans rendez-vous, sans délai d'attente.</p>
+        </div>
+    </div>
+</section>
+
+<div class="disclaimer-band">
+    IMPORTANT: LexBot est un outil d'information juridique. Il ne constitue pas un conseil juridique au sens légal du terme et ne remplace pas la consultation d'un avocat qualifié. Pour toute situation complexe, LexBot vous orientera vers les ressources officielles compétentes.
+</div>
+
+<footer>
+    <span class="footer-logo">LexBot</span>
+    <ul class="footer-links">
+        <li><a href="https://discord.gg/rtU5CCu5" target="_blank">discord.gg/rtU5CCu5</a></li>
+    </ul>
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 64 64" fill="none">
+        <rect width="64" height="64" rx="14" fill="#111"/>
+        <line x1="32" y1="10" x2="32" y2="14" stroke="#4f8ef7" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="32" cy="7.5" r="2.5" fill="#4f8ef7"/>
+        <rect x="18" y="14" width="28" height="19" rx="5" fill="#0d1117" stroke="#4f8ef7" stroke-width="1.5"/>
+        <circle cx="26" cy="22.5" r="3.2" fill="#4f8ef7"/>
+        <circle cx="38" cy="22.5" r="3.2" fill="#4f8ef7"/>
+        <circle cx="27.3" cy="21.3" r="1.1" fill="white" opacity=".65"/>
+        <circle cx="39.3" cy="21.3" r="1.1" fill="white" opacity=".65"/>
+        <rect x="26" y="28.5" width="12" height="2" rx="1" fill="#4f8ef7" opacity=".5"/>
+        <rect x="30.5" y="33" width="3" height="3" rx="1" fill="#4f8ef7"/>
+        <rect x="5" y="35.5" width="54" height="2.5" rx="1.25" fill="#4f8ef7"/>
+        <line x1="10" y1="38" x2="10" y2="44" stroke="#4488cc" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="54" y1="38" x2="54" y2="44" stroke="#4488cc" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4 44 Q10 54 16 44" stroke="#4f8ef7" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M48 44 Q54 54 60 44" stroke="#4f8ef7" stroke-width="2.2" stroke-linecap="round"/>
+        <rect x="30.5" y="38" width="3" height="17" rx="1" fill="#2a2a2a"/>
+        <rect x="22" y="55" width="20" height="3.5" rx="1.75" fill="#4f8ef7"/>
+    </svg>
+</footer>
+
+</body>
+</html>
