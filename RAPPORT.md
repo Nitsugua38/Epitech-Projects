@@ -84,87 +84,83 @@ Key Performance Indicators:
 
 ---
 
-## 2. Ethics considerations - (WIP)
+## 2. Ethics considerations
 
-### 2.1 LexBot ne remplace pas un avocat
+### 2.1 LexBot cannot fully replace a lawyer
 
-**Risque identifié :** L'effet ELIZA — les utilisateurs peuvent faire une confiance excessive au chatbot et prendre des décisions juridiques importantes uniquement sur la base de ses réponses.
+**Identified risk:** The ELIZA effect — users can have excessive trust in the chatbot and take important legal decisions solely based on its responses.
 
-**Mesures implémentées :**
-- Le system prompt de LexBot impose systématiquement de ne pas donner de conseil définitif
-- Chaque réponse cite les articles de loi sources (vérifiables par l'utilisateur)
-- Un disclaimer est affiché dans le footer des embeds Discord
-- LexBot oriente vers des ressources officielles (ADIL, service-public.fr, Défenseur des droits) pour les cas complexes
+**Implemented measures:**
+- LexBot's system prompt always enforce not giving definitive advice.
+- Every response includes references (that can be verified by the user).
+- A disclaimer is displayed in the response embeds footer.
+- LexBot redirects to official ressources (ADIL, service-public.fr, Défenseur des droits) for the most complex cases.
 
----
 
-### 2.2 Confidentialité et données personnelles
 
-**Risque identifié :** Les utilisateurs partagent des situations personnelles et sensibles (licenciement, litige familial, dette) — une fuite de données serait gravement préjudiciable.
+### 2.2 Confidentiality and personal data
 
-**Mesures implémentées :**
-- **Aucune donnée n'est persistée** : les sessions sont stockées uniquement en mémoire vive (RAM) et disparaissent au redémarrage du bot
-- **Aucun envoi vers un tiers** : Ollama et Mistral tournent 100% en local — les données ne quittent jamais la machine hôte
-- **Aucune collecte d'identifiants** : seul l'ID Discord (anonymisé) est utilisé pour gérer les sessions, sans association à un nom réel
+**Identified risk:** Users could share personal and sensible informations (getting fired, family dispute, debt) — a data leak would be very detrimentful.
 
-> Conformité RGPD naturelle : pas de traitement de données personnelles au sens strict, pas de base de données, pas de logs conservés.
+**Implemented measures:**
+- **No persisting data**: sessions are saved in memory (RAM) only and disappear when the bot restarts.
+- **No sharing with third-party**: Ollama and Mistral run fully locally — data never leave the host server
+- **No identification data collected**: Only Discord IDs (anonymous) are used to manage sessions, not tied to real world names.
 
----
+> GDPR compliant by nature: no personal data processing, no persisting database, no logs.
 
-### 2.3 Risque de désinformation juridique
 
-**Risque identifié :** Le modèle Mistral peut générer des articles de loi incorrects ou des informations périmées (les textes législatifs évoluent).
+### 2.3 Risk of legal misinformation
 
-**Mesures implémentées :**
-- Le système RAG ancre les réponses dans les textes officiels indexés (Code civil, Code pénal, Code de la route)
-- Le system prompt interdit à LexBot de citer un article s'il n'est pas dans les extraits RAG fournis
-- LexBot précise explicitement quand une information pourrait nécessiter une vérification auprès d'un professionnel
+**Identified risk:** The model could generate incorrect law articles or outdated info.
 
-**Limite reconnue :** Les PDFs indexés correspondent à une version datée des codes de loi. Des modifications législatives récentes pourraient ne pas être prises en compte. Un avertissement sur la date de la base documentaire est recommandé.
+**Implemented measures:**
+- The RAG system anchors answers in indexed official textbooks (Code civil, Code pénal, Code de la route).
+- The system prompt forbids LexBot to cite an article if it's not from the RAG documents.
+- LexBot explicitly says when an information could necessit further verification with a professionnal.
 
----
+**Current limitation:** Indexed PDFs correspond to a specific version of legal texts. Recent modifications may not be taken into account.
 
-### 2.4 Biais algorithmiques
 
-**Risque identifié :** Mistral, comme tout LLM, peut présenter des biais dans son interprétation du droit (favoriser certaines parties dans un litige, interpréter ambiguïment un article).
+### 2.4 Algorithmic bias
 
-**Mesures implémentées :**
-- Le system prompt positionne LexBot comme un outil neutre d'information, non comme un conseiller partisan
-- LexBot est explicitement limité aux questions juridiques (refus des questions hors-sujet)
-- Les réponses citent les sources pour permettre à l'utilisateur de vérifier et de se forger sa propre opinion
+**Identified risk:** Mistral, like any LLM, may present bias in its interpretation of the law (support a certain party over another in a dispute, misunderstand an article).
 
-**Mesure recommandée :** Mettre en place un mécanisme de feedback utilisateur (réaction Discord ✅/❌) pour identifier les réponses problématiques et améliorer le système.
+**Implemented measures:**
+- The system prompt places LexBot as a neutral information tool, not like a biased advisor.
+- LexBot is explicitly limited to legal questions (strictly no off-topic).
+- Answers cite their sources to allow the user to verify and make their own opinion.
 
----
+**Recommended measure:** Implement a feedback mechanism (Discord reaction ✅/❌) to identify problematic issues and improve the system.
 
-### 2.5 Risque de dépendance et d'effet ELIZA
 
-**Risque identifié :** Des utilisateurs vulnérables (personnes en détresse suite à un litige) pourraient développer une dépendance émotionnelle à LexBot ou lui attribuer une empathie qu'il n'a pas.
+### 2.5 Addiction risk & ELIZA effect
 
-**Mesures implémentées :**
-- LexBot communique sur un registre professionnel et factuel, sans simuler d'empathie excessive
-- Le nom "LexBot" et l'interface Discord rappellent clairement qu'il s'agit d'un outil automatisé
-- La limite de 10 messages gratuits incite à solliciter une aide humaine pour les cas complexes
+**Identified risk:** Vulnerable users may develop an emotional dependency to LexBot or assign him an empathy he doesn't have.
 
----
+**Implemented measures:**
+- LexBot communicate on a professionnal and factual tone, without simulating excessive empathy.
+- The "LexBot" name and the Discord interface are a clear reminder that it is an automated tool.
+- The 10 free messages limit encourage users to get human help for the most complex cases.
 
-### 2.6 Tableau de synthèse éthique
 
-| Risque | Niveau | Mesure en place |
+### 2.6 Ethics Summary
+
+| Risk | Level | In-place measure |
 |---|---|---|
-| Conseil juridique erroné pris pour définitif | Élevé | Disclaimer systématique + citation de sources |
-| Fuite de données personnelles | Faible | 100% local, pas de persistance |
-| Désinformation par hallucination | Moyen | RAG ancré sur textes officiels |
-| Biais en faveur d'une partie | Moyen | Neutralité imposée dans le prompt |
-| Dépendance / Effet ELIZA | Faible-Moyen | Ton professionnel, limite freemium |
-| Données périmées | Moyen | Avertissement sur la date des textes indexés |
+| Incorrect legal advice taken as final | High | Systematic Disclaimer + displaying sources |
+| Personal data leak | Low | 100% local, no data persistence |
+| Misonformation by hallucination | Medium | RAG anchored in official textbooks |
+| Bias in favor of one party | Medium | Neutrality imposed by the prompt |
+| Addiction / ELIZA effect | Low-Medium | Professionnal tone, freemium limit |
+| Outdated data | Medium | Warning on the date of indexed data |
 
 ---
 
 ## 3. Conclusion
 
-LexBot répond à un besoin réel et massif : l'accès au droit reste inégal en France, freiné par le coût et la complexité des démarches. En s'appuyant sur une architecture IA locale (Ollama + Mistral), un système RAG ancré dans les textes officiels, et une interface accessible via Discord, LexBot démocratise l'accès à l'information juridique tout en respectant la confidentialité des utilisateurs.
+LexBot addresses a real and global need: access to justice remains unequal in France, slowed by the cost and complexity of legal procedures. Leveraging a local AI architecture (Ollama + Mistral), a legal information system grounded in official texts, and an interface accessible via Discord, LexBot democratizes access to legal information while respecting user privacy.
 
-Son modèle freemium offre une entrée gratuite à faible barrière et une monétisation naturelle pour les utilisateurs réguliers (PME, professionnels). Les considérations éthiques ont été intégrées dès la conception, avec une architecture qui minimise structurellement les risques liés aux données personnelles.
+Its freemium model offers free entry with a low barrier to entry and natural monetization for regular users (SMBs, professionals). Ethical considerations were integrated from the outset, with an architecture that structurally minimizes risks related to personal data.
 
-> **LexBot ne prétend pas remplacer un avocat. Il vise à s'assurer que personne ne renonce à ses droits par manque d'information.**
+> **LexBot does not pretend remplacing a lawyer. It aims at assuring that no one renounces their rights because of a lack of information.**
