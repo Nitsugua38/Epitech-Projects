@@ -114,6 +114,12 @@ LexBot répond avec les articles de loi pertinents, en citant ses sources.
 
 ---
 
+## Landing Page
+
+[Site officiel - LexBot](https://lexbot-epitech.netlify.app/)
+
+---
+
 ## Architecture
 
 ```

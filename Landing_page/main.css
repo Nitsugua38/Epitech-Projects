@@ -231,3 +231,23 @@ footer {
     .step { border-left: none; border-top: 1px solid rgba(232, 227, 216, 0.12); }
     .step:first-child { border-top: none; }
 }
+
+
+#demoGIF {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#demoGIF .section-label {
+    font-size: 24px;
+    margin-bottom: 1.5rem;
+}
+
+#demoGIF img {
+    max-width: 100%;
+    border: 1px solid rgba(232, 227, 216, 0.12);
+    border-radius: 8px;
+}
