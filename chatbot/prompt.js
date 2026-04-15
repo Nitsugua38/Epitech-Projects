@@ -63,9 +63,9 @@ const executeCommand = async (interaction) => {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("chat")
-        .setDescription("Prompter ElizaBot")
-        .addStringOption(option => option.setName("prompt").setDescription("Entrez votre requête pour ElizaBot.").setRequired(true))
-        .addAttachmentOption(option => option.setName("file").setDescription("Optionnel : attachez un fichier PDF ou autre pour qu'ElizaBot puisse l'analyser.")),
+        .setDescription("Prompter LexBot")
+        .addStringOption(option => option.setName("prompt").setDescription("Entrez votre requête pour LexBot.").setRequired(true))
+        .addAttachmentOption(option => option.setName("file").setDescription("Optionnel : attachez un fichier PDF ou autre pour que LexBot puisse l'analyser.")),
 
     
     executeCommand: executeCommand

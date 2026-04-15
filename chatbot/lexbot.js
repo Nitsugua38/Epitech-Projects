@@ -90,10 +90,10 @@ async function handleChat(userId, message, updateResponseFunction) {
     if (ragResponse) message += `\n\n[Extrait juridique potentiellement pertinent] :\n${ragResponse}`;
     session.history.push({ role: "user", content: message });
 
-    let footer = null;
+    let footer = "LeBot est une IA. Vérifiez toujours les informations fournies et consultez un professionnel du droit si nécessaire.";
     const remaining = FREE_LIMIT - session.count - 1;
     if (remaining <= 3 && remaining > 0) {
-        footer = `⚠️ Il vous reste **${remaining}** message(s) gratuit(s). Passez à LexBot Pro pour des conversations illimitées !`;
+        footer += `\n ⚠️ Il vous reste **${remaining}** message(s) gratuit(s). Passez à LexBot Pro pour des conversations illimitées !`;
     }
 
     const response = await askOllama(session.history, updateResponseFunction, footer);

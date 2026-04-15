@@ -31,7 +31,7 @@ Assistant juridique IA intégré à Discord, propulsé par Mistral via Ollama. R
 **1. Cloner le repo**
 ```bash
 git clone https://github.com/EpitechBachelorPromo2028/B-AIA-210-PAR-2-1-eliza-13
-cd B-AIA-210-PAR-2-1-eliza-13/discord
+cd B-AIA-210-PAR-2-1-eliza-13/chatbot
 ```
 
 **2. Installer les dépendances**
@@ -41,7 +41,7 @@ npm install
 
 **3. Configurer le bot Discord**
 
-Créer un fichier `.env` dans `discord/` :
+Créer un fichier `.env` dans `chatbot/` :
 ```
 TOKEN=ton_token_discord
 ```
@@ -76,7 +76,7 @@ law_texts/
 ## Lancement
 
 ```bash
-cd discord
+cd chatbot
 npm start
 ```
 
@@ -117,7 +117,7 @@ LexBot répond avec les articles de loi pertinents, en citant ses sources.
 ## Architecture
 
 ```
-discord/
+chatbot/
 ├── index.js          # Point d'entrée, init Ollama + Discord
 ├── lexbot.js         # Appel Ollama (streaming), gestion sessions
 ├── prompt.js         # Handler slash commands, embeds Discord

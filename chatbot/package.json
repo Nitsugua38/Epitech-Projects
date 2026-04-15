@@ -1,7 +1,7 @@
 {
-  "name": "eliza-bot",
+  "name": "lexbot",
   "version": "1.0.0",
-  "description": "",
+  "description": "Un assistant juridique basé sur l'IA",
   "homepage": "https://github.com/EpitechBachelorPromo2028/B-AIA-210-PAR-2-1-eliza-13#readme",
   "license": "ISC",
   "author": "",
