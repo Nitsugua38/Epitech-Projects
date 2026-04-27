@@ -19,6 +19,10 @@ services:
       DB_PASSWORD: ${DB_ROOT_PASSWORD}
     depends_on:
       - db
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
 
   frontend:
     build: ./frontend

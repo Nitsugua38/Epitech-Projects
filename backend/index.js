@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 
 
 
@@ -16,4 +18,5 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
+    console.log("db name is " + process.env.DB_NAME)
 });
