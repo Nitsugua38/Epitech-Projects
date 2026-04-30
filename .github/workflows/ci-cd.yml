@@ -16,14 +16,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Makes .env
+        run: echo ${{ secrets.DB_ROOT_PASSWORD }} > .env
+             echo ${{ secrets.DB_NAME }} >> .env
+             echo ${{ secrets.PORT }} >> .env
+             echo ${{ secrets.API_KEY }} >> .env
       - name: Checks the docker
-        run: docker compose up --build
+        run: docker compose up -d --build
 
   # Lint/quality checks
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Makes .env
+        run: echo ${{ secrets.DB_ROOT_PASSWORD }} > .env
+             echo ${{ secrets.DB_NAME }} >> .env
+             echo ${{ secrets.PORT }} >> .env
+             echo ${{ secrets.API_KEY }} >> .env
       - name: Runs ESLint
         run: docker compose run backend npm run lint
       - name: Runs security check
@@ -34,5 +44,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Makes .env
+        run: echo ${{ secrets.DB_ROOT_PASSWORD }} > .env
+             echo ${{ secrets.DB_NAME }} >> .env
+             echo ${{ secrets.PORT }} >> .env
+             echo ${{ secrets.API_KEY }} >> .env
       - name: Runs tests
         run: docker compose up --build -d && docker compose run backend npm run test
