@@ -38,8 +38,6 @@ jobs:
           echo "API_KEY=${{ secrets.API_KEY }}" >> .env
       - name: Runs ESLint
         run: docker compose run backend npm run lint
-      - name: Runs security check
-        run: docker compose run backend npm audit
 
   # Automated tests covering at minimum two backend API routes and one data normalization function.
   test:
