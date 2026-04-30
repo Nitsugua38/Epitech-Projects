@@ -13,7 +13,7 @@ jobs:
 
   # Build checks
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
       - name: Makes .env
@@ -27,7 +27,7 @@ jobs:
 
   # Lint/quality checks
   lint:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
       - name: Makes .env
@@ -41,7 +41,7 @@ jobs:
 
   # Automated tests covering at minimum two backend API routes and one data normalization function.
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
       - name: Makes .env
