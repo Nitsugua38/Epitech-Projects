@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../index.css">
+    <title>Connexion | Job Aggregator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../image/ChatGPT Image 28 avr. 2026, 11_44_57-modified.png" />
+    <script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+</head>
+<body class="auth-page">
+    <header>
+        <img class="job-agregator" src="../image/ChatGPT Image 28 avr. 2026, 11_44_57-modified.png" alt="Job Aggregator">
+        <div>
+            <a href="../index.html" class="logo">Page d'accueil</a>
+            <a href="../entreprise/index.html" class="logo">Avis sur les entreprises</a>
+            <a href="../estimation/index.html" class="logo">Estimation de salaire</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="./index.html"><button class="btn-login">Connexion</button></a>
+            <a href="../inscription/index.html"><button class="btn-signup">Inscription</button></a>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-hero">
+            <div class="auth-copy">
+                <span class="auth-kicker">Bon retour parmi nous</span>
+                <h1>Connecte-toi pour retrouver tes offres et suivre tes candidatures.</h1>
+                <p>
+                    Accède à tes favoris, tes messages et tes alertes dans une interface simple,
+                    claire.
+                </p>
+
+                <div class="auth-highlights">
+                    <div>
+                        <strong>Rapide</strong>
+                        <span>Connexion en quelques secondes</span>
+                    </div>
+                    <div>
+                        <strong>Sécurisé</strong>
+                        <span>Sessions protégées et profil personnel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <span class="auth-card-badge"><i class="fa-solid fa-user-lock"></i> Espace candidat</span>
+                    <h2>Connexion</h2>
+                    <p>Entre tes identifiants pour reprendre ta recherche d’emploi.</p>
+                </div>
+
+                <form class="auth-form">
+                    <label for="email">Adresse e-mail</label>
+                    <input id="email" type="email" placeholder="ex: prenom.nom@mail.com">
+
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" placeholder="Ton mot de passe">
+
+                    <div class="auth-row">
+                        <label class="auth-remember">
+                            <input type="checkbox">
+                            Se souvenir de moi
+                        </label>
+                        <a href="#">Mot de passe oublié ?</a>
+                    </div>
+
+                    <button type="submit" class="btn-auth-submit">Se connecter</button>
+                </form>
+
+                <p class="auth-switch">
+                    Pas encore de compte ? <a href="../inscription/index.html">Créer un compte</a>
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

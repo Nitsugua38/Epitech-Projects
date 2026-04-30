@@ -1,0 +1,54 @@
+name: CI and Engineering Workflow
+
+
+# Runs on pull requests and pushes to main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+
+jobs:
+
+  # Build checks
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v6
+      - name: Makes .env
+        run: |
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+      - name: Checks the docker
+        run: docker compose up -d --build
+
+  # Lint/quality checks
+  lint:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v6
+      - name: Makes .env
+        run: |
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+      - name: Runs ESLint
+        run: docker compose run backend npm run lint
+
+  # Automated tests covering at minimum two backend API routes and one data normalization function.
+  test:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v6
+      - name: Makes .env
+        run: |
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+      - name: Runs tests
+        run: docker compose up --build -d && docker compose run backend npm run test
