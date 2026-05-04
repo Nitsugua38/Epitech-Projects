@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../index.css">
+    <title>Inscription | Job Aggregator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../image/ChatGPT Image 28 avr. 2026, 11_44_57-modified.png" />
+    <script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    Inscription
+<body class="auth-page">
+    <header>
+        <img class="job-agregator" src="../image/ChatGPT Image 28 avr. 2026, 11_44_57-modified.png" alt="Job Aggregator">
+        <div>
+            <a href="../index.html" class="logo">Page d'accueil</a>
+            <a href="../entreprise/index.html" class="logo">Avis sur les entreprises</a>
+            <a href="../estimation/index.html" class="logo">Estimation de salaire</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="../connexion/index.html"><button class="btn-login">Connexion</button></a>
+            <a href="./index.html"><button class="btn-signup">Inscription</button></a>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-hero">
+            <div class="auth-copy">
+                <span class="auth-kicker">Crée ton compte candidat</span>
+                <h1>Inscris-toi pour sauvegarder tes offres et suivre tes candidatures.</h1>
+                <p>
+                    Rejoins l’espace candidat pour retrouver tes favoris, recevoir des alertes
+                    et centraliser toute ta recherche d’emploi au même endroit.
+                </p>
+
+                <div class="auth-highlights">
+                    <div>
+                        <strong>Simple</strong>
+                        <span>Un formulaire court et rapide à compléter</span>
+                    </div>
+                    <div>
+                        <strong>Pratique</strong>
+                        <span>Accès immédiat à toutes tes fonctionnalités</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <span class="auth-card-badge"><i class="fa-solid fa-user-plus"></i> Nouvel utilisateur</span>
+                    <h2>Inscription</h2>
+                    <p>Crée ton compte pour commencer à postuler plus rapidement.</p>
+                </div>
+
+                <form class="auth-form">
+                    <label for="firstname">Prénom</label>
+                    <input id="firstname" type="text" placeholder="Ton prénom">
+
+                    <label for="lastname">Nom</label>
+                    <input id="lastname" type="text" placeholder="Ton nom">
+
+                    <label for="email">Adresse e-mail</label>
+                    <input id="email" type="email" placeholder="ex: prenom.nom@mail.com">
+
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" placeholder="Choisis un mot de passe">
+
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <input id="confirm-password" type="password" placeholder="Ressaisis ton mot de passe">
+
+                    <div class="auth-row">
+                        <label class="auth-remember">
+                            <input type="checkbox">
+                            J’accepte les conditions d’utilisation
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-auth-submit">Créer mon compte</button>
+                </form>
+
+                <p class="auth-switch">
+                    Tu as déjà un compte ? <a href="../connexion/index.html">Se connecter</a>
+                </p>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
