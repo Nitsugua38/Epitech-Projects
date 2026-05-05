@@ -16,9 +16,7 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 app.use(cors())
-app.get('/api/test/', function (req, res, next) {
-  res.json({msg: 'Lien obtenu avvec succèes'})
-})
+
 
 app.use(express.json());
 
