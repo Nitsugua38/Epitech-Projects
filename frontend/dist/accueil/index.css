@@ -1,5 +1,4 @@
 body {
-    overflow: hidden;
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #ffffff;
@@ -318,7 +317,8 @@ img.job-agregator {
 }
 
 .auth-form input[type="email"],
-.auth-form input[type="password"] {
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
     width: 100%;
     box-sizing: border-box;
     border: 1px solid #dedede;
@@ -332,7 +332,8 @@ img.job-agregator {
 }
 
 .auth-form input[type="email"]:focus,
-.auth-form input[type="password"]:focus {
+.auth-form input[type="password"]:focus,
+.auth-form input[type="text"]:focus {
     border-color: #e60000;
     box-shadow: none;
 }
