@@ -16,9 +16,7 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 app.use(cors())
-app.get('/api/test/', function (req, res, next) {
-  res.json({msg: 'Lien obtenu avvec succèes'})
-})
+
 
 app.use(express.json());
 
@@ -36,7 +34,7 @@ const register =async (req,res) => {
       "INSERT INTO users (email, password, nom, role) VALUES (?, ?, ?, ?)",
       [email, hashedPassword, name, "user"]
     );
-    res.status(201).json({ message: 'création réuissis' });
+    res.status(201).json({ message: 'création réussie' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'erreur lors de la création du compte' });
@@ -61,11 +59,11 @@ const login = async (req, res) => {
     if (isPasswordValid) {
       const payload = {
         userId: user.id,
-        username: user.prénom + "_" + user.nom,
+        username: user.prenom + "_" + user.nom,
       };
       const secretKey = process.env.JWT_SECRET;
       const token = jwt.sign(payload, secretKey, {
-        expiresIn: '1h',  
+        expiresIn: '48h',  
       });
       console.log(token);
        res.status(200).json({ message: 'Login successful voici le token', token: token });
