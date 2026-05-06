@@ -60,7 +60,7 @@ jobs:
       - name: Installs dependencies
         run: |
           cd backend
-          npm ci
+          npm install
 
       - name: Runs ESLint
         run: |
