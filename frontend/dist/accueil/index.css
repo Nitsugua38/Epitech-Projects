@@ -95,7 +95,7 @@ img.job-agregator {
 
 .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px;
     background-color: #fcfcfc;
 }
 
@@ -111,6 +111,7 @@ img.job-agregator {
     gap: 10px;
     max-width: 800px;
     margin: 0 auto;
+    margin-bottom: 70px;
 }
 
 .search-input {
@@ -141,6 +142,100 @@ img.job-agregator {
     background-color: #cc0000;
 }
 
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #5f5f5f;
+    margin-top: -15px;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+.value-prop-section {
+    background: linear-gradient(180deg, #fcfcfc 0%, #ffffff 100%);
+    padding: 60px 5%;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.value-prop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.value-prop-container h2 {
+    color: #171717;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.value-prop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.value-prop-card {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-prop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-color: #e60000;
+}
+
+.value-prop-card i {
+    font-size: 32px;
+    color: #e60000;
+    margin-bottom: 20px;
+}
+
+.value-prop-card h3 {
+    font-size: 1.3rem;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.value-prop-card p {
+    color: #555555;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+
+.swipe-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.btn-swipe-login{
+    width: 100%;
+    padding: 15px 30px;
+    background-color: #e60000;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-swipe-login:hover{
+    background-color: #cc0000;
+}
+
+#private-view {
+    display: none;
+}
+
 .jobs-section {
     padding: 50px 5%;
     max-width: 1200px;
@@ -149,7 +244,8 @@ img.job-agregator {
 
 .jobs-section h2 {
     color: #333333;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .job-grid {
@@ -179,13 +275,13 @@ img.job-agregator {
 
 .job-company {
     font-size: 14px;
-    color: #666666;
+    color: #555555;
     margin-bottom: 10px;
 }
 
 .job-location {
     font-size: 14px;
-    color: #666666;
+    color: #555555;
     margin-bottom: 15px;
 }
 
@@ -198,6 +294,15 @@ img.job-agregator {
     margin-right: 5px;
     font-weight: bold;
 }
+
+
+.job-preview {
+    font-size: 12px;
+    color: #555;
+    margin: 10px 0;
+}
+
+
 
 /*---connexion page---*/
 .auth-main {
@@ -217,20 +322,6 @@ img.job-agregator {
     padding-right: 24px;
 }
 
-.auth-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    background: rgba(230, 0, 0, 0.08);
-    color: #e60000;
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-}
-
 .auth-copy h1 {
     margin: 20px 0 16px;
     font-size: clamp(2.3rem, 4vw, 4rem);
@@ -245,32 +336,6 @@ img.job-agregator {
     font-size: 1.05rem;
     line-height: 1.7;
     color: #5f5f5f;
-}
-
-.auth-highlights {
-    margin-top: 28px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.auth-highlights div {
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 18px;
-    padding: 18px;
-}
-
-.auth-highlights strong {
-    display: block;
-    color: #e60000;
-    margin-bottom: 6px;
-}
-
-.auth-highlights span {
-    color: #666666;
-    font-size: 0.95rem;
-    line-height: 1.5;
 }
 
 .auth-card {
@@ -288,21 +353,10 @@ img.job-agregator {
 
 .auth-card-header p {
     margin: 0;
-    color: #666666;
+    color: #555555;
     line-height: 1.6;
 }
 
-.auth-card-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 14px;
-    border-radius: 999px;
-    background: #f5f5f5;
-    color: #e60000;
-    font-size: 13px;
-    font-weight: 700;
-}
 
 .auth-form {
     margin-top: 24px;
@@ -338,24 +392,6 @@ img.job-agregator {
     box-shadow: none;
 }
 
-.auth-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    margin-top: 4px;
-}
-
-.auth-remember {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    color: #5f5f5f;
-    font-weight: 500;
-}
-
-.auth-row a,
 .auth-switch a {
     color: #e60000;
     text-decoration: none;
@@ -388,7 +424,7 @@ img.job-agregator {
 .auth-switch {
     margin: 18px 0 0;
     text-align: center;
-    color: #666666;
+    color: #555555;
     line-height: 1.6;
 }
 
@@ -447,4 +483,323 @@ img.job-agregator {
         flex-direction: column;
         align-items: flex-start;
     }
+}
+
+
+
+
+
+
+
+.tinder-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 100px);
+}
+
+.tinder-filters {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 70px;
+}
+
+.tinder-main {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#tinder-cards-container {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tinder-loading {
+    text-align: center;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.tinder-loading i {
+    font-size: 3rem;
+    color: #e60000;
+    margin-bottom: 20px;
+}
+
+.tinder-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    border: 1px solid #e60000;
+    z-index: 1;
+    background-color: #fafafa;
+}
+
+.job-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    z-index: 0;
+}
+
+.job-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%);
+}
+
+.no-job-image {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-job-image i {
+    font-size: 4rem;
+    color: #ccc;
+}
+
+.tinder-card.expanded .job-image {
+    height: 30%;
+    position: relative;
+}
+
+.tinder-card-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: hidden;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    color: white;
+}
+
+.tinder-card.expanded .tinder-card-content {
+    justify-content: flex-start;
+    overflow-y: auto;
+    background-color: #ffffff;
+    color: #333;
+    height: 70%;
+}
+
+.job-title {
+    font-size: 1.5rem;
+    color: inherit;
+    margin-bottom: 10px;
+    margin-top: auto;
+    text-shadow: black 1px 1px 1px;
+}
+
+.tinder-card.expanded .job-title {
+    margin-top: 0;
+}
+
+.job-company {
+    font-size: 1.1rem;
+    color: #e60000;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: black 1px 1px 1px;
+}
+
+.job-location {
+    font-size: 1rem;
+    color: inherit;
+    opacity: 0.9;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.job-salary {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0;
+}
+
+.tinder-card.expanded .job-tags {
+    margin-bottom: 20px;
+}
+
+.job-tags span {
+    background-color: #ffffff;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid #ddd;
+}
+
+.job-details-extended {
+    max-height: 0;
+    opacity: 0;
+    overflow: visible;
+    transition: opacity 0.3s ease;
+}
+
+.tinder-card.expanded .job-details-extended {
+    max-height: none;
+    opacity: 1;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.job-details-extended h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.job-details-extended p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.job-details-extended ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #555;
+}
+
+.job-details-extended ul li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.job-details-extended ul li strong {
+    color: #333;
+}
+
+.tinder-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.tinder-btn {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    background: #dfdfdf;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tinder-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.tinder-btn:active {
+    transform: scale(0.95);
+}
+
+.tinder-btn.nope {
+    color: #ff0000;
+}
+
+.tinder-btn.like {
+    color: #00ff08;
+}
+
+
+@media (max-width: 768px) {
+    .tinder-filters {
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .tinder-filters input {
+        padding: 2px;
+        width: 40%;
+        font-size: 0.8rem;
+    }
+    
+    .tinder-layout {
+        padding: 10px;
+    }
+
+    #tinder-cards-container {
+        height: 60vh;
+    }
+
+    .job-title {
+        font-size: 1.3rem;
+    }
+
+    .tinder-card {
+        border-top: none;
+        border-radius: 30px;
+    }
+
+    .tinder-btn {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+
+    .job-agregator {
+        display: none;
+    }
+
 }

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="index.css">
-<title>Job Aggregator</title>
+<title>Jaggr</title>
 <link rel="shortcut icon" type="image/x-icon" href="image/Job.png" />
 <script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
 <script src="index.js" defer></script>
@@ -20,150 +20,84 @@
     </div>
     <div class="auth-buttons">
         <div class="icons">
-            <a href="favoris/index.html"><i class="fa-solid fa-book-bookmark"></i></a>
+            <a href="favoris/index.html"><i class="fa-solid fa-heart"></i></a>
             <a href="messages/index.html"><i class="fa-solid fa-message"></i></a>
             <a href="notification/index.html"><i class="fa-solid fa-bell"></i></a>
             <a href="profile/index.html"><i class="fa-solid fa-user"></i></a>
         </div>
-        <a href="connexion/index.html"><button class="btn-login">Connexion</button></a>
-        <a href="inscription/index.html"><button class="btn-signup">Inscription</button></a>
+        <a href="connexion/index.html"><button class="btn-login" id="btn-login">Connexion</button></a>
+        <a href="inscription/index.html"><button class="btn-signup" id="btn-signup">Inscription</button></a>
     </div>
 </header>
 
+
+
+
 <main>
-    <section class="hero">
-        <h1>Trouvez le job de vos rêves.</h1>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Quoi ? (ex: Développeur React, IA...)">
-            <input type="text" class="search-input" placeholder="Où ? (ex: Paris, Remote...)">
-            <button class="btn-search">Rechercher</button>
-        </div>
-    </section>
+    <div id="public-view">
 
-    <section class="jobs-section">
-        <h2>Dernières offres WeLoveDevs</h2>
-        <div class="job-grid">
-            <div class="job-card">
-                <div class="job-title">Développeur Fullstack JS</div>
-                <div class="job-company">Tech Innovate</div>
-                <div class="job-location">Paris (Hybride)</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>45k - 55k</span>
+        <section class="hero">
+            <h1>Swiper. Matcher. Embauché.</h1>
+            <p class="hero-subtitle">Trouve ton prochain job plus simplement qu'un date.</p>
+            <div class="swipe-container">
+                <a href="connexion/index.html">
+                    <button class="btn-swipe-login">Commencer à swiper</button>
+                </a>
+            </div>
+        </section>
+
+
+        <section class="value-prop-section">
+            <div class="value-prop-container">
+                <h2>Pourquoi Jaggr va changer ta vie ?</h2>
+                <div class="value-prop-grid">
+                    <div class="value-prop-card">
+                        <i class="fa-solid fa-fire"></i>
+                        <h3>Coup de foudre technique</h3>
+                        <p>Fini les lettres de motivation interminables. Si ton profil correspond, c'est un match.</p>
+                    </div>
+                    <div class="value-prop-card">
+                        <i class="fa-solid fa-ban"></i>
+                        <h3>Swipe les recruteurs relous</h3>
+                        <p>Une offre sans salaire ? Une cantine comme seul avantage ? Swipe left. Ne perd plus de temps avec les Red Flags.</p>
+                    </div>
+                    <div class="value-prop-card">
+                        <i class="fa-solid fa-heart"></i>
+                        <h3>Des relations (pro) durables</h3>
+                        <p>On te matche sur tes valeurs : télétravail, culture d'entreprise, et bien sûr, la paie. Pour que la relation dure.</p>
+                    </div>
                 </div>
             </div>
+        </section>
+    </div>
 
-            <div class="job-card">
-                <div class="job-title">Ingénieur Data / IA</div>
-                <div class="job-company">DataCorp</div>
-                <div class="job-location">100% Remote</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>Python</span>
-                </div>
+    
+
+
+    <div id="private-view">
+        <div class="tinder-layout">
+            <h3>Affiner les offres</h3>
+            <div class="tinder-filters">
+                <input type="text" id="tinder-quoi" class="search-input" placeholder="Technos (React, Python...)">
+                <input type="text" id="tinder-ou" class="search-input" placeholder="Lieu (Paris, Remote...)">
             </div>
-
-            <div class="job-card">
-                <div class="job-title">Stage Développeur Frontend</div>
-                <div class="job-company">Startup Studio</div>
-                <div class="job-location">Lyon</div>
-                <div class="job-tags">
-                    <span>Stage</span>
-                    <span>React</span>
+            
+            <div class="tinder-main">
+                <div id="tinder-cards-container">
+                    <div class="tinder-loading">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <p>Recherche d'offres compatibles...</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Développeur Backend Python</div>
-                <div class="job-company">FinTech Solutions</div>
-                <div class="job-location">Bordeaux</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>Django</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Lead Tech React</div>
-                <div class="job-company">Agence Web Paris</div>
-                <div class="job-location">Paris</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>60k+</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Alternance DevOps</div>
-                <div class="job-company">Cloud Native</div>
-                <div class="job-location">Nantes</div>
-                <div class="job-tags">
-                    <span>Alternance</span>
-                    <span>Docker</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Développeur Mobile iOS</div>
-                <div class="job-company">AppFactory</div>
-                <div class="job-location">Toulouse</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>Swift</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Data Analyst</div>
-                <div class="job-company">Marketing Metrics</div>
-                <div class="job-location">Lille</div>
-                <div class="job-tags">
-                    <span>CDD</span>
-                    <span>SQL</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Ingénieur Cybersécurité</div>
-                <div class="job-company">SecureNet</div>
-                <div class="job-location">Strasbourg</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>Pentest</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Product Owner Tech</div>
-                <div class="job-company">E-commerce Plus</div>
-                <div class="job-location">100% Remote</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>Agile</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Développeur C++</div>
-                <div class="job-company">Gaming Studio</div>
-                <div class="job-location">Montpellier</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>Unreal Engine</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <div class="job-title">Architecte Cloud AWS</div>
-                <div class="job-company">Big Data Corp</div>
-                <div class="job-location">Rennes</div>
-                <div class="job-tags">
-                    <span>CDI</span>
-                    <span>AWS</span>
+                
+                <div class="tinder-controls">
+                    <button id="btn-nope" class="tinder-btn nope"><i class="fa-solid fa-xmark"></i></button>
+                    <button id="btn-like" class="tinder-btn like"><i class="fa-solid fa-heart"></i></button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
 </main>
 
 </body>
