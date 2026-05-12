@@ -36,9 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (result.data.token) {
                         localStorage.setItem('token', result.data.token);
                     }
-                    alert('Connexion reussie.');
-                    window.location.href = '../index.html';
-                    return;
+                    return window.location.href = '../index.html';
                 }
 
                 alert(result.data.error || 'Identifiants invalides.');

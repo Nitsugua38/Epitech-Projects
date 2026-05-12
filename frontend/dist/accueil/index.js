@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let currentPage = 0;
     let isFetching = false;
+    let loadedJobs = [];
 
 
 
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Affichage des jobs
 
     function renderJobs(jobs, append = false) {
+        if (!append) loadedJobs = [];
+        loadedJobs = [...loadedJobs, ...jobs];
         let html = "";
         
 
@@ -95,8 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function fetchJobs(page = 0, append = false) {
         let url = `http://localhost:3000/api/jobs?page=${page}&size=50`;
+        const token = localStorage.getItem("token");
 
-        fetch(url)
+        fetch(url, {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
         .then(response => response.json())
         .then(data => {
             renderJobs(data.jobs || [], append);
@@ -154,10 +162,28 @@ document.addEventListener("DOMContentLoaded", function () {
         if (cards.length === 0) return;
         
         const topCard = cards[0];
+        const jobId = topCard.getAttribute("data-id");
         
-        if (direction === "left") topCard.style.transform = "translate(-100vw, 20px) rotate(-20deg)";
-        else if (direction === "right") topCard.style.transform = "translate(100vw, 20px) rotate(20deg)";
-        else topCard.style.transform = "translateY(-100vh)";
+        if (direction === "right") {
+            const jobData = loadedJobs.find(j => j.id == jobId);
+            if (jobData) {
+                const token = localStorage.getItem("token");
+                fetch("http://localhost:3000/api/jobs/apply", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ job: jobData })
+                })
+                .then(r => r.json())
+                .then(data => console.log("Applied:", data))
+                .catch(err => console.error("Error applying:", err));
+            }
+            topCard.style.transform = "translate(100vw, 20px) rotate(20deg)";
+        }
+        
+        else if (direction === "left") topCard.style.transform = "translate(-100vw, 20px) rotate(-20deg)";
         
         topCard.style.opacity = "0";
         setTimeout(() => topCard.remove(), 500);
