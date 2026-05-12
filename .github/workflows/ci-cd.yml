@@ -11,59 +11,58 @@ on:
 
 jobs:
 
-  # Build checks
-  build:
+  buildAndTests:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
+
       - name: Makes .env
         run: |
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
           echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
           echo "PORT=${{ secrets.PORT }}" >> .env
           echo "API_KEY=${{ secrets.API_KEY }}" >> .env
+      
       - name: Installs docker
         run: |
           mkdir -p ~/.docker/cli-plugins/
           curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
           chmod +x ~/.docker/cli-plugins/docker-compose
-      - name: Checks the docker
+      
+      - name: Build checks
         run: docker compose up -d --build
+      
+      - name: Automated tests covering at minimum two backend API routes and one data normalization function
+        run: docker compose run backend npm run test
 
-  # Lint/quality checks
+      - name: Shuts down
+        run: docker compose down -v
+
+
+
   lint:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v6
-      - name: Makes .env
-        run: |
-          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-          echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
-          echo "PORT=${{ secrets.PORT }}" >> .env
-          echo "API_KEY=${{ secrets.API_KEY }}" >> .env
-      - name: Installs docker
-        run: |
-          mkdir -p ~/.docker/cli-plugins/
-          curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-          chmod +x ~/.docker/cli-plugins/docker-compose
-      - name: Runs ESLint
-        run: docker compose run backend npm run lint
 
-  # Automated tests covering at minimum two backend API routes and one data normalization function.
-  test:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v6
       - name: Makes .env
         run: |
           echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
           echo "DB_ROOT_PASSWORD=${{ secrets.DB_ROOT_PASSWORD }}" >> .env
           echo "PORT=${{ secrets.PORT }}" >> .env
           echo "API_KEY=${{ secrets.API_KEY }}" >> .env
-      - name: Installs docker
+
+      - name: Sets up Node.js
+        uses: actions/setup-node@v6.4.0
+        with:
+          node-version: "22.20.0"
+
+      - name: Installs dependencies
         run: |
-          mkdir -p ~/.docker/cli-plugins/
-          curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-          chmod +x ~/.docker/cli-plugins/docker-compose
-      - name: Runs tests
-        run: docker compose up --build -d && docker compose run backend npm run test
+          cd backend
+          npm install
+
+      - name: Runs ESLint
+        run: |
+          cd backend
+          npm run lint
