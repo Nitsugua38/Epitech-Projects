@@ -7,6 +7,7 @@
     <title>Inscription | Jaggr</title>
     <link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
     <script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+    <script src="index.js" defer></script>
 </head>
 <body class="auth-page">
     <header>
@@ -47,19 +48,19 @@
 
                 <form class="auth-form">
                     <label for="firstname">Prénom</label>
-                    <input id="firstname" type="text" placeholder="Ton prénom">
+                    <input id="firstname" type="text" placeholder="Ton prénom" required>
 
                     <label for="lastname">Nom</label>
-                    <input id="lastname" type="text" placeholder="Ton nom">
+                    <input id="lastname" type="text" placeholder="Ton nom" required>
 
                     <label for="email">Adresse e-mail</label>
-                    <input id="email" type="email" placeholder="ex: prenom.nom@mail.com">
+                    <input id="email" type="email" placeholder="ex: prenom.nom@mail.com" required>
 
                     <label for="password">Mot de passe</label>
-                    <input id="password" type="password" placeholder="Choisis un mot de passe">
+                    <input id="password" type="password" placeholder="Choisis un mot de passe" required>
 
                     <label for="confirm-password">Confirmer le mot de passe</label>
-                    <input id="confirm-password" type="password" placeholder="Ressaisis ton mot de passe">
+                    <input id="confirm-password" type="password" placeholder="Ressaisis ton mot de passe" required>
 
                     <div class="auth-row">
                         <label class="auth-remember">
