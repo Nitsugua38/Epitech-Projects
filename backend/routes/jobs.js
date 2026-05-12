@@ -1,3 +1,6 @@
+const { getAppliedJobIds } = require("./applied.js");
+
+
 const fetchJobsList = async (page = 0, size = 50, query = "") => {
     
     const apiKey = process.env.API_KEY;
@@ -45,11 +48,15 @@ const jobs = async (req, res) => {
     try {
         const page = req.query.page || 0;
         const size = req.query.size || 50;
-        const Jobs = await fetchJobsList(page, size);
+        let Jobs = await fetchJobsList(page, size);
+
+        const appliedIds = await getAppliedJobIds(req, res);
+        if (appliedIds) Jobs = Jobs.filter(job => !appliedIds.includes(job.id));
+
         res.json({ jobs: Jobs });
     } catch (error) {
         console.error("Error fetching jobs:", error);
-        res.status(500).json({ error: "Failed to fetch jobs" });
+        res.status(500).json({ error: "Failed to fetch" });
     }
 };
 

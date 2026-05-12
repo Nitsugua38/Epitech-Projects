@@ -15,3 +15,15 @@ CREATE TABLE offers (
   company varchar(255),
   location varchar(255)
 );
+
+CREATE TABLE applied_offers (
+  id int PRIMARY KEY AUTO_INCREMENT,
+  user_id int,
+  offer_id varchar(255),
+  title varchar(255),
+  company varchar(255),
+  location varchar(255),
+  date date,
+  status varchar(255), /* "en attente", "accepté", "refusé" */
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);

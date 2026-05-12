@@ -5,6 +5,7 @@ var app = express()
 const { jobs } = require("./routes/jobs");
 const { register } = require("./routes/register");
 const { login } = require("./routes/login");
+const { applyJob } = require("./routes/applied");
 
 
 
@@ -26,6 +27,8 @@ app.post('/api/register', register);
 //login
 app.post('/api/login', login);
 
+//applied
+app.post('/api/jobs/apply', applyJob);
 
 
 app.listen(process.env.PORT, function () {
