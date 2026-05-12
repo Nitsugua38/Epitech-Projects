@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
+        const conditionsCheck = getElementById("conditionsCheck").checked;
+
+        if (!firstname || !lastname || !email || !password || !confirmPassword || !conditionsCheck) {
+            alert('Veuillez remplir tous les champs.');
+            return;
+        }
 
         if (password !== confirmPassword) {
             alert('Les mots de passe ne correspondent pas.');
@@ -47,8 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(function (result) {
                 if (result.ok) {
                     alert('Compte créé avec succès.');
-                    form.reset();
-                    return;
+                    return window.location.href = '../connexion/index.html';
                 }
 
                 alert(result.data.error || 'Impossible de créer le compte.');
