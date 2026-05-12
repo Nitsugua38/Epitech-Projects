@@ -1,3 +1,6 @@
+const bcrypt = require("bcryptjs");
+const { promisePool } = require("../db/db.js");
+
 const register =async (req,res) => {
     const {name, email, password} = req.body;
     const salt =await bcrypt.genSalt(10);

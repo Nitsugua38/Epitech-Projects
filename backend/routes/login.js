@@ -1,7 +1,11 @@
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const { promisePool } = require("../db/db.js");
+
 const login = async (req, res) => {
     const { email, password } = req.body;
     try {
-        const [rows]= await promisePool.query("SELECT * FROM users WHERE email = ?", [email]);
+        const [rows] = await promisePool.query("SELECT * FROM users WHERE email = ?", [email]);
         const user = rows[0];
         if (!user) {
             res.status(401).json({ error: 'Invalid credentials' });
