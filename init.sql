@@ -4,7 +4,7 @@ CREATE TABLE users (
   password varchar(255),
   role varchar(255),
   nom varchar(255),
-  prénom varchar(255),
+  prenom varchar(255),
   profil_recherche text 
 );
 
