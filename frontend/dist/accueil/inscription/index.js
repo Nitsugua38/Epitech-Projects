@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
-        const conditionsCheck = getElementById("conditionsCheck").checked;
+        const conditionsCheck = document.getElementById("conditionsCheck").checked;
 
         if (!firstname || !lastname || !email || !password || !confirmPassword || !conditionsCheck) {
             alert('Veuillez remplir tous les champs.');
