@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../accueil/index.css">
+<title>Jaggr - Profil</title>
+<link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
+<script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+<script src="index.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div">
+            <a href="../accueil/" class="logo"><img class="job-agregator" src="../image/Job.png" alt=""></a>
+            <span class="logo-text">Jaggr</span>
+        </div>
+        <div class="auth-buttons">
+            <div class="icons">
+                <a href="../favoris/"><i class="fa-solid fa-heart"></i></a>
+                <a href="../profile/"><i class="fa-solid fa-user"></i></a>
+            </div>
+            <a href="../connexion/"><button class="btn-login" id="btn-login">Connexion</button></a>
+            <a href="../inscription/"><button class="btn-signup" id="btn-signup">Inscription</button></a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Mon profil</h1>
+            <p class="hero-subtitle">Retrouve ici les informations de ton compte, des stats sur tes swipes et tes recommandations IA. <br>N'oublie pas d'ajouter ton CV !</p>
+        </section>
+
+        <div>
+            <section class="jobs-section">
+                <h2>Infos du compte</h2>
+                <div id="account-card">
+                    <div class="job-company" id="account-name"></div>
+                    <div class="job-location" id="account-email"></div>
+                    <div class="job-preview" id="account-username"></div>
+                    <div class="cv" id="account-cv"></div>
+                </div>
+            </section>
+
+            <section class="jobs-section">
+                <h2>Swipe Stats</h2>
+                <div id="data-output"></div>
+            </section>
+
+            <section class="jobs-section">
+                <h2>Recommandations IA</h2>
+                <div>
+                    <div id="ia-output" class="job-grid"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
