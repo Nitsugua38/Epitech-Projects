@@ -5,7 +5,7 @@ CREATE TABLE users (
   role varchar(255),
   nom varchar(255),
   prenom varchar(255),
-  profil_recherche text 
+  cv text
 );
 
 CREATE TABLE applied_offers (
