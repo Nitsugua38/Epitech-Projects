@@ -6,6 +6,7 @@ const { jobs } = require("./routes/jobs");
 const { register } = require("./routes/register");
 const { login } = require("./routes/login");
 const { applyJob } = require("./routes/applied");
+const { getDataFeature } = require("./DATA/datafeature");
 
 
 
@@ -29,6 +30,9 @@ app.post('/api/login', login);
 
 //applied
 app.post('/api/jobs/apply', applyJob);
+
+//data feature
+app.get('/api/datafeature', getDataFeature);
 
 
 app.listen(process.env.PORT, function () {

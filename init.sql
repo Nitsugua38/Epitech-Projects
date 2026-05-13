@@ -8,14 +8,6 @@ CREATE TABLE users (
   profil_recherche text 
 );
 
-CREATE TABLE offers (
-  id int PRIMARY KEY AUTO_INCREMENT,
-  title varchar(255),
-  description text,
-  company varchar(255),
-  location varchar(255)
-);
-
 CREATE TABLE applied_offers (
   id int PRIMARY KEY AUTO_INCREMENT,
   user_id int,
@@ -23,6 +15,7 @@ CREATE TABLE applied_offers (
   title varchar(255),
   company varchar(255),
   location varchar(255),
+  salary varchar(255),
   date date,
   status varchar(255), /* "en attente", "accepté", "refusé" */
   FOREIGN KEY (user_id) REFERENCES users(id)
