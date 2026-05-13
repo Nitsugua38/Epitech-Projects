@@ -816,3 +816,67 @@ img.job-agregator {
 
 
 
+/*profile*/
+
+.profile-stats-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-stats-card h3 {
+    margin-bottom: 15px;
+}
+
+.profile-match-title {
+    color: rgb(9, 218, 9);
+    margin-bottom: 10px !important;
+}
+
+.salary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.salary-list-item {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.salary-count {
+    font-weight: bold;
+    color: #e60000;
+}
+
+.cv {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.cv a {
+    color: #e60000;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.cv a:hover {
+    text-decoration: underline;
+}
+
+.upload-cv-div {
+    margin-top: 15px;
+}
+
+#btn-upload-cv {
+    border: none;
+    color: white;
+    padding: 3px 12px;
+    background-color: #e60000;
+    border-radius: 5px;
+    cursor: pointer;
+}
