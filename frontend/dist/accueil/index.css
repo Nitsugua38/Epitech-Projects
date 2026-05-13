@@ -24,13 +24,17 @@ header {
 
 
 /*---Logo---*/
-.logo {
+.logo-div{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.logo-text {
     font-size: 24px;
-    padding: 30px;
     font-weight: bold;
     color: #e60000;
-    text-decoration: none;
-    justify-content: space-between;
+    padding-left: 10px;
 }
 
 img.job-agregator {
