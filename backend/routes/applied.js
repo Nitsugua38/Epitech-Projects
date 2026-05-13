@@ -21,8 +21,8 @@ const applyJob = async (req, res) => {
         const status = "en attente";
 
         await promisePool.query(
-            "INSERT INTO applied_offers (user_id, offer_id, title, company, location, date, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            [userId, job.id, job.title, job.company, job.location, date, status]
+            "INSERT INTO applied_offers (user_id, offer_id, title, company, location, salary, date, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            [userId, job.id, job.title, job.company, job.location, job.salary || null, date, status]
         );
 
         res.status(201).json({ message: "Application saved" });
