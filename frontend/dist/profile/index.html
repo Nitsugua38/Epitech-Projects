@@ -7,6 +7,7 @@
 <title>Jaggr - Profil</title>
 <link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
 <script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+<script src="index.js" defer></script>
 </head>
 <body>
 
@@ -28,7 +29,7 @@
     <main>
         <section class="hero">
             <h1>Mon profil</h1>
-            <p class="hero-subtitle">Retrouve ici les informations de ton compte, des stats sur tes swipes et tes recommandations IA.</p>
+            <p class="hero-subtitle">Retrouve ici les informations de ton compte, des stats sur tes swipes et tes recommandations IA. <br>N'oublie pas d'ajouter ton CV !</p>
         </section>
 
         <div>
@@ -38,12 +39,13 @@
                     <div class="job-company" id="account-name"></div>
                     <div class="job-location" id="account-email"></div>
                     <div class="job-preview" id="account-username"></div>
+                    <div class="cv" id="account-cv"></div>
                 </div>
             </section>
 
             <section class="jobs-section">
-                <h2>Offres postulées</h2>
-                <div id="data-output" class="job-grid"></div>
+                <h2>Swipe Stats</h2>
+                <div id="data-output"></div>
             </section>
 
             <section class="jobs-section">
@@ -55,6 +57,5 @@
         </div>
     </main>
 
-    <script src="./index.js" defer></script>
 </body>
 </html>

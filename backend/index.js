@@ -7,6 +7,8 @@ const { register } = require("./routes/register");
 const { login } = require("./routes/login");
 const { applyJob } = require("./routes/applied");
 const { getDataFeature } = require("./DATA/datafeature");
+const { getProfile } = require("./routes/user");
+const { upload, uploadCv } = require("./routes/cv");
 
 
 
@@ -33,6 +35,12 @@ app.post('/api/jobs/apply', applyJob);
 
 //data feature
 app.get('/api/datafeature', getDataFeature);
+
+//user profile
+app.get('/api/user', getProfile);
+
+//cv
+app.post('/api/user/cv', upload.single('cv'), uploadCv);
 
 
 app.listen(process.env.PORT, function () {
