@@ -22,6 +22,10 @@ header {
     border-bottom: 2px solid #eeeeee;
 }
 
+.logo {
+    text-decoration: none;
+    color: inherit;
+}
 
 /*---Logo---*/
 .logo-div{
