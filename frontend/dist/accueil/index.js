@@ -7,7 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("public-view").style.display = "none";
         document.getElementById("private-view").style.display = "block";
         document.getElementById("btn-login").style.display = "none";
-        document.getElementById("btn-signup").style.display = "none";
+        document.getElementById("btn-signup").innerText = "Déconnexion";
+        document.getElementById("btn-signup").addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.removeItem("token");
+            window.location.href = "../connexion/";
+        });
     }
 
     const searchInputs = document.querySelectorAll(".search-input");
