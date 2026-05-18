@@ -24,12 +24,10 @@ const getDataFeature = async (req, res) => {
         // Score de match
         let accepted = 0;
         let rejected = 0;
-        let enAttente = 0;
 
         rows.forEach(row => {
             if (row.status === "accepté") accepted++;
             else if (row.status === "refusé") rejected++;
-            else enAttente++;
         });
 
         const totalResponses = accepted + rejected;
@@ -83,6 +81,7 @@ const getDataFeature = async (req, res) => {
         });
 
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "Erreur lors du calcul des données" });
     }
 };
