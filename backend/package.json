@@ -10,7 +10,7 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "lint": "npx eslint .",
-    "test": "echo 'tests a config quand le backend sera fait' && exit 0"
+    "test": "node tests/test.js"
   },
   "dependencies": {
     "cors": "2.8.6",
