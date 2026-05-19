@@ -162,47 +162,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Swiper pour enlever ou postuler à un job
 
-    function swipeJob(direction) {
-        const cards = Array.from(document.querySelectorAll(".job-card")).filter(c => c.style.display !== "none");
-        if (cards.length === 0) return;
-        
-        const topCard = cards[0];
-        const jobId = topCard.getAttribute("data-id");
-        
-        if (direction === "right") {
-            const jobData = loadedJobs.find(j => j.id == jobId);
-            if (jobData) {
-                const token = localStorage.getItem("token");
-                fetch("http://localhost:3000/api/jobs/apply", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    },
-                    body: JSON.stringify({ job: jobData })
-                })
-                .then(r => r.json())
-                .then(data => console.log("Applied:", data))
-                .catch(err => console.error("Error applying:", err));
-            }
-            topCard.style.transform = "translate(100vw, 20px) rotate(20deg)";
-        }
-        
-        else if (direction === "left") topCard.style.transform = "translate(-100vw, 20px) rotate(-20deg)";
-        
-        topCard.style.opacity = "0";
-        setTimeout(() => topCard.remove(), 500);
+   function swipeJob(direction) {
+    const cards = Array.from(document.querySelectorAll(".job-card")).filter(c => c.style.display !== "none");
+    if (cards.length === 0) return;
+    
+    const topCard = cards[0];
+    const jobId = topCard.getAttribute("data-id");
+    
+    if (direction === "right") {
+        const jobData = loadedJobs.find(j => j.id == jobId);
+        if (jobData) {
+            const token = localStorage.getItem("token");
+            
+            fetch("http://localhost:3000/api/jobs/apply", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({ job: jobData })
+            })
+            .then(r => r.json())
+            .catch(err => console.error(err));
 
-
-        if (cards.length <= 5 && !isFetching) {
-            isFetching = true;
-            currentPage++;
-            fetchJobs(currentPage, true);
-            setTimeout(() => {
-                isFetching = false;
-            }, 2000);
+            fetch("http://localhost:3000/api/favorites", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({ job: jobData })
+            })
+            .then(r => r.json())
+            .catch(err => console.error(err));
         }
+        topCard.style.transform = "translate(100vw, 20px) rotate(20deg)";
     }
+    
+    else if (direction === "left") {
+        topCard.style.transform = "translate(-100vw, 20px) rotate(-20deg)";
+    }
+    
+    topCard.style.opacity = "0";
+    setTimeout(() => topCard.remove(), 500);
+
+    if (cards.length <= 5 && !isFetching) {
+        isFetching = true;
+        currentPage++;
+        fetchJobs(currentPage, true);
+        setTimeout(() => {
+            isFetching = false;
+        }, 2000);
+    }
+}
 
     document.getElementById("btn-nope").addEventListener("click", () => swipeJob("left"));
     document.getElementById("btn-like").addEventListener("click", () => swipeJob("right"));

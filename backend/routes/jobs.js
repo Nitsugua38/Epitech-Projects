@@ -4,6 +4,9 @@ const { getAppliedJobIds } = require("./applied.js");
 const fetchJobsList = async (page = 0, size = 50, query = "") => {
     
     const apiKey = process.env.API_KEY;
+    if (!apiKey) {
+        return [];
+    }
     let url = `https://epi-api.welovedevs.com/v1?page=${page}&size=${size}`;
     if (query) {
         url += `&q=${encodeURIComponent(query)}`;
@@ -16,7 +19,8 @@ const fetchJobsList = async (page = 0, size = 50, query = "") => {
     });
 
     if (!response.ok) {
-        throw new Error(`API responded with status: ${response.status}`);
+        console.error(`Job API responded with status: ${response.status}`);
+        return [];
     }
 
     const data = await response.json();
@@ -61,5 +65,6 @@ const jobs = async (req, res) => {
 };
 
 module.exports = {
-    jobs
+    jobs,
+    fetchJobsList
 }

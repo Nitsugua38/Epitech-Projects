@@ -4,7 +4,7 @@ const { normalizeSalary } = require("../DATA/datafeature.js");
 require("dotenv").config();
 require("../index.js");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const baseUrl = `http://localhost:${PORT}`;
 
 
