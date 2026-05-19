@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Job Aggregator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main class="container">
+        <section id="dashboard" class="admin-block">
+            <h2>Statistiques globales</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-number">67</span>
+                    <span class="stat-label">Inscrits</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">76</span>
+                    <span class="stat-label">Offres actives</span>
+                </div>
+            </div>
+            <div class="graph-area">
+                go mettre un graphique en sah
+            </div>
+        </section>
+
+        <section id="users" class="admin-block">
+            <div class="block-header">
+                <h2>Comptes Utilisateurs</h2>
+                <button class="action-btn">Créer un compte</button>
+            </div>
+            <table class="simple-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Rôle</th>
+                        <th>Droits</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>contact@nitsugua.fr</td>
+                        <td>Admin</td>
+                        <td>Tous</td>
+                        <td>
+                            <button class="edit-btn">Modifier</button>
+                            <button class="delete-btn">Bannir</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>recrutement@startup.io</td>
+                        <td>Editeur</td>
+                        <td>Lecture/Écriture</td>
+                        <td>
+                            <button class="edit-btn">Modifier</button>
+                            <button class="delete-btn">Bannir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="content" class="admin-block">
+            <div class="block-header">
+                <h2>Gestion des Offres</h2>
+                <button class="action-btn">Nouvelle offre manuelle</button>
+            </div>
+            <table class="simple-table">
+                <thead>
+                    <tr>
+                        <th>Poste</th>
+                        <th>Entreprise</th>
+                        <th>État</th>
+                        <th>Mise à jour</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Développeur Fullstack JS</td>
+                        <td>Epitech IT</td>
+                        <td><span class="status-online">En ligne</span></td>
+                        <td>12/05/2026</td>
+                        <td>
+                            <button class="edit-btn">Éditer</button>
+                            <button class="delete-btn">Supprimer</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="monitoring" class="admin-block">
+            <h2>État du Serveur</h2>
+            <div class="stats-container">
+                <div class="stat-box border-green">
+                    <span class="stat-label">Base de données</span>
+                    <span class="stat-value">En ligne</span>
+                </div>
+                <div class="stat-box border-green">
+                    <span class="stat-label">Charge CPU</span>
+                    <span class="stat-value">8%</span>
+                </div>
+                <div class="stat-box border-orange">
+                    <span class="stat-label">Mémoire RAM</span>
+                    <span class="stat-value">82%</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="logs" class="admin-block">
+            <h2>Historique d'Activité</h2>
+            <table class="simple-table">
+                <thead>
+                    <tr>
+                        <th>Date & Heure</th>
+                        <th>Utilisateur</th>
+                        <th>Action</th>
+                        <th>Cible</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12/05/2026 14:32</td>
+                        <td>Admin (1)</td>
+                        <td>SUPPRESSION_OFFRE</td>
+                        <td>Offre ID: 12</td>
+                    </tr>
+                    <tr>
+                        <td>12/05/2026 13:15</td>
+                        <td>Admin (1)</td>
+                        <td>MODIF_ROLE</td>
+                        <td>Utilisateur ID: 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
