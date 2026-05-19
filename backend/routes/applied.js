@@ -28,6 +28,7 @@ const applyJob = async (req, res) => {
         res.status(201).json({ message: "Application saved" });
 
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "Failed to save application" });
     }
 };
@@ -35,7 +36,7 @@ const applyJob = async (req, res) => {
 
 
 
-const getAppliedJobIds = async (req, res) => {
+const getAppliedJobIds = async (req) => {
     const authHeader = req.headers.authorization;
 
     if (!authHeader) {
@@ -56,6 +57,7 @@ const getAppliedJobIds = async (req, res) => {
         const ids = rows.map(row => row.offer_id);
         return ids;
     } catch (error) {
+        console.log(error);
         return [];
     }
 };

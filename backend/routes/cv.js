@@ -44,6 +44,7 @@ const uploadCv = async (req, res) => {
         res.json({ message: "CV uploaded", path: filePath });
 
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "CV error" });
     }
 };
