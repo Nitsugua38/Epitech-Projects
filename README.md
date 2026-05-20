@@ -1,6 +1,7 @@
-# Job Aggregator
+# Job Aggregator : Jaggr
 
-Petit projet full stack pour lister des offres et suivre les candidatures.
+Projet full stack pour lister des offres techs, postuler et suivre ses candidatures. Inclus un dashboard utilisateur avec des stats avancées et des recommandations IA.
+Le site est inspiré du swipe "Tinder" pour les offres d'emploi. Voir [Market and Product Discovery](<docs/Market and Product Discovery.md>).
 
 ## Ce que fait le projet
 
@@ -8,7 +9,7 @@ Petit projet full stack pour lister des offres et suivre les candidatures.
 - Permet de creer un compte et se connecter.
 - Permet de postuler a une offre.
 - Permet d'envoyer un CV.
-- Donne quelques stats simples.
+- Donne quelques stats et recommendations IA.
 
 ## Techs
 
@@ -50,7 +51,7 @@ Services:
 - Frontend: http://localhost:8080
 - MySQL: localhost:3306
 
-## API (vite fait)
+## API
 
 Base URL: `http://localhost:3000`
 
@@ -61,19 +62,34 @@ Base URL: `http://localhost:3000`
 - `GET /api/user` profil (token requis)
 - `POST /api/user/cv` envoyer un CV (token requis)
 - `GET /api/datafeature` stats (token requis)
+- `GET /api/recommendations` IA (token requis)
+- `GET /api/favorites` liste des favoris (token requis)
+- `POST /api/favorites` ajouter un favori (token requis)
+- `DELETE /api/favorites/:id` supprimer un favori (token requis)
 
-## Base de donnees
+## Base de données
 
-Le fichier `init.sql` cree 2 tables:
+Le fichier `init.sql` crée 3 tables:
 
 - `users` (utilisateurs)
 - `applied_offers` (candidatures)
+- `favorites` (favoris)
 
 ## Structure
 
 ```
+.github/           github actions
 backend/           API Node.js
 frontend/          site statique
+docs/              documentation, readme business et figma
 init.sql           schema MySQL
 docker-compose.yml docker local
 ```
+
+## Documentation
+
+- [Market and Product Discovery](<docs/Market and Product Discovery.md>)
+- [Innovation Justification](<docs/Innovation Justification.md>)
+- [Documentation of Choices](<docs/Documentation of Choices.md>)
+- [Cybersecurity](<docs/Cybersecurity.md>)
+- [Mockups wireframes](<docs/figma/>)
