@@ -16,6 +16,7 @@ const getFavorites = async (req, res) => {
         );
         res.json({ favorites: rows });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "Failed" });
     }
 };
@@ -36,6 +37,7 @@ const addFavorite = async (req, res) => {
         );
         res.status(201).json({ message: "Saved" });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "Failed" });
     }
 };
@@ -56,6 +58,7 @@ const removeFavorite = async (req, res) => {
         );
         res.status(200).json({ message: "Removed" });
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: "Failed" });
     }
 };
