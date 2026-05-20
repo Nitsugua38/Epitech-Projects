@@ -4,7 +4,7 @@ const { normalizeSalary } = require("../DATA/datafeature.js");
 require("dotenv").config();
 require("../index.js");
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const baseUrl = `http://localhost:${PORT}`;
 
 
@@ -25,6 +25,11 @@ const baseUrl = `http://localhost:${PORT}`;
     assert.strictEqual(res2.status, 200);
     const json2 = await res2.json();
     assert.ok(json2.jobs);
+
+    const res3 = await fetch(`${baseUrl}/api/recommendations`);
+    assert.strictEqual(res3.status, 401);
+    const json3 = await res3.json();
+    assert.deepStrictEqual(json3, { error: "Unauthorized" });
 
     process.exit(0);
 })();

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     fetchProfile(token);
     fetchDataFeature(token);
+    fetchRecommendations(token);
 });
 
 
@@ -82,8 +83,54 @@ function fetchProfile(token) {
     .catch(err => console.error(err));
 }
 
+function showRecommendations(recommendations) {
+    const output = document.getElementById("ia-output");
+    if (!recommendations || recommendations.length === 0) {
+        output.innerHTML = `<p class="no-results">Aucune recommandation trouvée pour le moment. Upload ton CV et réessaie.</p>`;
+        return;
+    }
 
+    output.innerHTML = recommendations.map(job => `
+        <div class="job-card">
+            <div class="job-card-header">
+                <h3>${job.title}</h3>
+                <span>${job.company}</span>
+            </div>
+            <p class="job-description">${job.descriptionPreview || job.description || "Description non disponible."}</p>
+            <p><strong>Localisation :</strong> ${job.location || "Non précisé"}</p>
+            <p><strong>Score de pertinence :</strong> ${Math.round(job.relevanceScore || 0)}</p>
+            ${job.tags && job.tags.length ? `<p class="job-tags">${job.tags.map(tag => `<span class="tag">${tag}</span>`).join(" ")}</p>` : ""}
+        </div>
+    `).join("");
+}
 
+function showRecommendationError(message) {
+    document.getElementById("ia-output").innerHTML = `<p class="ia-error">${message}</p>`;
+}
+
+function fetchRecommendations(token) {
+    fetch("http://localhost:3000/api/recommendations", {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    .then(res => {
+        if (res.status === 401) return window.location.href = "../connexion/";
+        if (res.status === 400) return res.json().then(data => { throw new Error(data.error || "Aucun CV trouvé"); });
+        return res.json();
+    })
+    .then(data => {
+        showRecommendations(data.recommendations);
+    })
+    .catch(err => {
+        if (err.message === "No CV found" || err.message === "Aucun CV trouvé") {
+            showRecommendationError("Téléversez votre CV pour obtenir des recommandations IA.");
+        } else {
+            console.error(err);
+            showRecommendationError("Impossible de charger les recommandations IA pour le moment.");
+        }
+    });
+}
 
 
 function fetchDataFeature(token) {
