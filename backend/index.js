@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api', apiRoutes);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, function () {
     console.log(`web server listening on port ${PORT}`)
 })
