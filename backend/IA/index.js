@@ -1,9 +1,15 @@
+const STOP_WORDS = new Set([
+  "le", "la", "les", "de", "des", "du", "un", "une", "et", "en", "que", "qui", "dans", "pour", "par", "sur", "avec", "pour", "est",
+  "sont", "plus", "mais", "ou", "donc", "or", "ni", "car", "se", "sa", "ses", "son", "leur", "leurs", "ce", "cet", "cette", "ces",
+  "je", "tu", "il", "elle", "nous", "vous", "ils", "elles", "mon", "ton", "son", "mes", "tes", "ses", "au", "aux", "d", "l"
+]);
+
 const tokenize = text =>
   text
     .toLowerCase()
     .replace(/[^a-z0-9àâäéèêëîïôöùûüçœæ\s]/gi, " ")
     .split(/\s+/)
-    .filter(Boolean);
+    .filter(word => Boolean(word) && !STOP_WORDS.has(word));
 
 const buildTermFrequency = tokens =>
   tokens.reduce((freq, word) => {
