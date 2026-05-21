@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../accueil/index.css">
+<link rel="stylesheet" href="index.css">
+<title>Jaggr - Profil</title>
+<link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
+<script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+<script src="index.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div">
+            <a href="../accueil/" class="logo"><img class="job-agregator" src="../image/Job.png" alt=""></a>
+            <a href="../accueil/" class="logo"><span class="logo-text">Jaggr</span></a>
+        </div>
+        <div class="auth-buttons">
+            <div class="icons">
+                <a href="../favoris/"><i class="fa-solid fa-heart"></i></a>
+                <a href="../profile/"><i class="fa-solid fa-user"></i></a>
+            </div>
+            <a href="../connexion/"><button class="btn-login" id="btn-login">Connexion</button></a>
+            <a href="../inscription/"><button class="btn-signup" id="btn-signup">Inscription</button></a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="dashboard" class="admin-block">
+            <h2>Statistiques globales</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-number" id="total-users">0</span>
+                    <span class="stat-label">Inscrits</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="users" class="admin-block">
+            <div class="block-header">
+                <h2>Comptes Utilisateurs</h2>
+            </div>
+
+            <div id="edit-role-modal" style="display:none; background:#f9f9f9; padding:20px; border:1px solid #ddd; margin-bottom:20px;">
+                <h3 style="margin-bottom:10px;">Modifier le rôle</h3>
+                <input type="hidden" id="edit-id">
+                <select id="edit-role" style="padding:5px; margin-bottom:10px;">
+                    <option value="user">user</option>
+                    <option value="company">company</option>
+                    <option value="admin">admin</option>
+                </select>
+                <br>
+                <button onclick="submitEditRole()" class="action-btn">Enregistrer</button>
+                <button onclick="closeEditRole()" class="edit-btn">Annuler</button>
+            </div>
+
+            <table class="simple-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Rôle</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                </tbody>
+            </table>
+        </section>
+
+        <section id="monitoring" class="admin-block">
+            <h2>État du Serveur</h2>
+            <div class="stats-container">
+                <div class="stat-box border-green">
+                    <span class="stat-value">En ligne</span>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -9,6 +9,7 @@ const { register } = require("./register.js");
 const { getProfile } = require("./user.js");
 const { applyJob } = require("./applied.js");
 const { getFavorites, addFavorite, removeFavorite } = require("./favorites.js");
+const adminRoutes = require("./admin_panel.js");
 
 router.post("/register", register);
 router.post("/login", login);
@@ -21,5 +22,7 @@ router.get("/recommendations", getRecommendedJobs);
 router.get("/favorites", getFavorites);
 router.post("/favorites", addFavorite);
 router.delete("/favorites/:id", removeFavorite);
+router.get("/users", adminRoutes.getUserList)
+router.put("/users/:id/role", adminRoutes.updateUserRole);
 
 module.exports = router;
