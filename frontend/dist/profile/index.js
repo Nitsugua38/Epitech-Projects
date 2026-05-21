@@ -38,10 +38,14 @@ function fetchProfile(token) {
     .then(data => {
         document.getElementById("account-name").innerHTML = `<i class="fa-solid fa-user"></i> ${data.user.prenom} ${data.user.nom}`;
         document.getElementById("account-email").innerHTML = `<i class="fa-solid fa-envelope"></i> ${data.user.email}`;
-        document.getElementById("account-username").innerHTML = `<i class="fa-solid fa-briefcase"></i> Role: ${data.user.role == "user" ? "Candidat" : "Administrateur"}`;
+        document.getElementById("account-username").innerHTML = `<i class="fa-solid fa-briefcase"></i> Role: ${data.user.role == "user" ? "Candidat" : data.user.role == "admin" ? "Administrateur": "Entreprise"}`;
 
         if (data.user.role == "admin") {
             document.getElementById("btn-section-admin").style.display = "unset"
+        }
+
+        if (data.user.role == "company") {
+            document.getElementById("btn-section-entreprise").style.display = "unset"
         }
         
         const cvDiv = document.getElementById("account-cv");

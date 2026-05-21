@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../accueil/index.css">
+<link rel="stylesheet" href="index.css">
+<title>Jaggr - Espace Entreprise</title>
+<link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
+<script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+<script src="index.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div">
+            <a href="../accueil/" class="logo"><img class="job-agregator" src="../image/Job.png" alt=""></a>
+            <a href="../accueil/" class="logo"><span class="logo-text">Jaggr</span></a>
+        </div>
+        <div class="auth-buttons">
+            <div class="icons">
+                <a href="../favoris/"><i class="fa-solid fa-heart"></i></a>
+                <a href="../profile/"><i class="fa-solid fa-user"></i></a>
+            </div>
+            <a href="../connexion/"><button class="btn-login" id="btn-login">Connexion</button></a>
+            <a href="../inscription/"><button class="btn-signup" id="btn-signup">Inscription</button></a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="company-block">
+            <div class="block-header">
+                <h2>Candidatures Reçues</h2>
+            </div>
+
+            <div id="edit-status-modal" style="display:none; background:#f9f9f9; padding:20px; border:1px solid #ddd; margin-bottom:20px;">
+                <h3 style="margin-bottom:10px;">Modifier le statut de la candidature</h3>
+                <input type="hidden" id="edit-app-id">
+                <select id="edit-status" style="padding:5px; margin-bottom:10px;">
+                    <option value="en attente">En attente</option>
+                    <option value="accepté">Accepté</option>
+                    <option value="refusé">Refusé</option>
+                </select>
+                <br>
+                <button onclick="submitEditStatus()" class="action-btn">Enregistrer</button>
+                <button onclick="closeStatusModal()" class="edit-btn">Annuler</button>
+            </div>
+
+            <table class="simple-table">
+                <thead>
+                    <tr>
+                        <th>ID Candidat</th>
+                        <th>Offre</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>CV</th>
+                        <th>Statut</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="applications-table-body">
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

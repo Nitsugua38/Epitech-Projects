@@ -1,4 +1,3 @@
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { promisePool } = require("../db/db.js");
 
@@ -19,7 +18,6 @@ const getUserList = async (req, res) => {
         if (currentUser.length === 0 || currentUser[0].role !== "admin") {
             return res.status(403).json({ error: "Accès refusé" });
         }
-        const userId = decoded.userId;
         const [rows] = await promisePool.query(
             "SELECT id, email, nom, prenom, role FROM users"
         );

@@ -10,6 +10,7 @@ const { getProfile } = require("./user.js");
 const { applyJob } = require("./applied.js");
 const { getFavorites, addFavorite, removeFavorite } = require("./favorites.js");
 const adminRoutes = require("./admin_panel.js");
+const companyRoutes = require("./company.js");
 
 router.post("/register", register);
 router.post("/login", login);
@@ -24,5 +25,10 @@ router.post("/favorites", addFavorite);
 router.delete("/favorites/:id", removeFavorite);
 router.get("/users", adminRoutes.getUserList)
 router.put("/users/:id/role", adminRoutes.updateUserRole);
+router.get("/company/check", companyRoutes.checkCompanyAccess);
+router.get("/company/applications", companyRoutes.getCompanyApplications);
+router.put("/company/applications/:id/status", companyRoutes.updateApplicationStatus);
+router.get("/company/cv/:filename", companyRoutes.getCV)
+
 
 module.exports = router;
