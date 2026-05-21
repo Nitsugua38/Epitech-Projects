@@ -76,16 +76,18 @@ L'utilisation du paramètre de recherche de l'API WeLoveDevs (`q`) a été rejet
 
 ## 5. Choix de l'IA
 
-- [A FAIRE]
+Nous avons choisi une recommandation locale d'offres d'emploi basées sur le contenu du CV de l'utilisateur.
 
 #### Why
-[A FAIRE]
+Nous voulions un système de recommandation rapide, gratuit, sans appel LLM externe et respectueux de la vie privée des utilisateurs (le CV ne quitte pas le serveur), et simple à déployer dans notre docker.
 
 #### How
-[A FAIRE]
+Le fichier `backend/IA/recommendation.js` lit le CV de l'utilisateur depuis le stockage, et en extrait le texte grâce à la bibliothèque `pdf-parse`.
+Ce texte est nettoyé (minuscules, retrait des caractères spéciaux) et filtré à l'aide d'une liste de mots courants (stop words) (`backend/IA/index.js`) afin d'éviter que des mots de liaison (comme "le", "la") ne faussent le calcul. 
+On calcule la fréquence des mots pour le CV et chaque offre, puis un produit scalaire pour obtenir un score de similarité. Le top 5 des offres ayant obtenu les meilleurs scores sont renvoyées.
 
 #### Trade-off
-[A FAIRE]
+L'algorithme est ultra-léger (0 Mo sur disque, exécution quasi-instantanée) et ne requiert aucune ressource GPU. Le compromis est l'absence de compréhension profonde de la langue (lié au NLP). La correspondance se fait uniquement sur la présence exacte de mots partagés.
 
 
 ---

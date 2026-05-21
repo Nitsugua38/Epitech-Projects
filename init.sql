@@ -30,3 +30,6 @@ CREATE TABLE IF NOT EXISTS favorites (
     location VARCHAR(255) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+INSERT INTO users (email, password, role, nom, prenom, cv) VALUES 
+("admin@jaggr.com", "$2b$10$GnKX7AgwpeT0yH5hRnVlIepFa5Yy/jewzmU7AWvVdV9w1d.tf8V36", "admin", "Admin", "Jaggr", NULL);
