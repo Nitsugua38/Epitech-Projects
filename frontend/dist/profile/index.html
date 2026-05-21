@@ -31,9 +31,12 @@
             <h1>Mon profil</h1>
             <p class="hero-subtitle">Retrouve ici les informations de ton compte, des stats sur tes swipes et tes recommandations IA. <br>N'oublie pas d'ajouter ton CV !</p>
             
-            <div class="swipe-container" style="margin-top: 20px; max-width: 200px;">
+            <div class="swipe-container" style="margin-top: 20px; display: flex; gap: 20px;">
                 <a href="../favoris/">
-                    <button class="btn-signup" style="width: 100%; padding: 10px 20px; border: none;">Voir mes favoris</button>
+                    <button class="btn-signup" style="padding: 10px 20px; border: none;">Voir mes favoris</button>
+                </a>
+                <a href="../admin_panel/index.html">
+                    <button class="btn-signup" style="padding: 10px 20px; border: none; display: none;" id="btn-section-admin">Section admin</button>
                 </a>
             </div>
         </section>
@@ -41,6 +44,7 @@
         <div>
             <section class="jobs-section">
                 <h2>Infos du compte</h2>
+                
                 <div id="account-card">
                     <div class="job-company" id="account-name"></div>
                     <div class="job-location" id="account-email"></div>
