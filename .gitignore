@@ -1,0 +1,5 @@
+.env
+backend/node_modules
+backend/package-lock.json
+node_modules/
+backend/uploads/

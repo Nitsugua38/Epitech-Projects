@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../accueil/index.css">
+<title>Jaggr - Inscription</title>
+<link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
+<script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+<script src="index.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div">
+            <a href="../accueil/" class="logo" aria-label="Accueil Jaggr"><img class="job-agregator" src="../image/Job.png" alt="Logo Jaggr"></a>
+            <a href="../accueil/" class="logo" aria-label="Accueil Jaggr"><span class="logo-text">Jaggr</span></a>
+        </div>
+        <div class="auth-buttons">
+            <div class="icons">
+                <a href="../favoris/" aria-label="Mes favoris"><i class="fa-solid fa-heart"></i></a>
+                <a href="../profile/" aria-label="Mon profil"><i class="fa-solid fa-user"></i></a>
+            </div>
+            <a href="../connexion/" aria-label="Connexion"><button class="btn-login" id="btn-login">Connexion</button></a>
+            <a href="../inscription/" aria-label="Inscription"><button class="btn-signup" id="btn-signup">Inscription</button></a>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-hero">
+            <div class="auth-copy">
+                <h1>Inscris-toi pour commencer à swiper.</h1>
+                <p>
+                    Le swipe productif.
+                    <br>
+                    Trouve un emploi, accède à tes favoris, tes messages et tes alertes dans une interface simple et claire.
+                </p>
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <h2>Inscription</h2>
+                    <p>Crée ton compte et trouve un emploi.</p>
+                </div>
+
+                <form class="auth-form">
+                    <label for="firstname">Prénom</label>
+                    <input id="firstname" type="text" placeholder="Ton prénom" required>
+
+                    <label for="lastname">Nom</label>
+                    <input id="lastname" type="text" placeholder="Ton nom" required>
+
+                    <label for="email">Adresse e-mail</label>
+                    <input id="email" type="email" placeholder="ex: prenom.nom@mail.com" required>
+
+                    <label for="password">Mot de passe</label>
+                    <input id="password" type="password" placeholder="Choisis un mot de passe" required>
+
+                    <label for="confirm-password">Confirmer le mot de passe</label>
+                    <input id="confirm-password" type="password" placeholder="Ressaisis ton mot de passe" required>
+
+                    <div class="auth-row">
+                        <label class="auth-remember">
+                            <input type="checkbox" id="conditionsCheck">
+                            J’accepte les conditions d’utilisation
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-auth-submit">Créer mon compte</button>
+                </form>
+
+                <p class="auth-switch">
+                    Tu as déjà un compte ? <a href="../connexion/">Se connecter</a>
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
