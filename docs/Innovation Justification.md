@@ -30,9 +30,8 @@
 
 ## 3. Les recommendations IA
 
-- **What :** [A FAIRE]
-- **Hypothesis :** [A FAIRE]
-- **Why :** [A FAIRE]
+- **What :** Un widget de recommandations d'offres d'emploi ciblées, calculées en comparant automatiquement le CV de l'utilisateur avec la liste des 100 dernières offres disponibles.
+- **Hypothesis :** Automatiser la recherche d'emploi en analysant directement les compétences listées dans le CV de l'utilisateur permet de faire remonter immédiatement les offres les plus pertinentes, évitant ainsi au candidat d'avoir à configurer manuellement de multiples filtres de recherche.
+- **Why :** Saisir manuellement des mots-clés de recherche est répétitif et incomplet. L'extraction et le matching automatique à partir du CV suppriment cette friction, tout en mettant en valeur des opportunités auxquelles le candidat n'aurait pas forcément pensé.
 - **How (Success Measurements) :**
-  - [A FAIRE]
-  - [A FAIRE]
+  - **Taux d'interaction :** Proportion d'offres recommandées par l'IA que l'utilisateur décide de postuler.
