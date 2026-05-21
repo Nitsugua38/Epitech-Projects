@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../accueil/index.css">
+<title>Jaggr - Favoris</title>
+<link rel="shortcut icon" type="image/x-icon" href="../image/Job.png" />
+<script src="https://kit.fontawesome.com/e401cf8907.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-div">
+            <a href="../accueil/" class="logo"><img class="job-agregator" src="../image/Job.png" alt=""></a>
+            <a href="../accueil/" class="logo"><span class="logo-text">Jaggr</span></a>
+        </div>
+        <div class="auth-buttons">
+            <div class="icons">
+                <a href="../favoris/"><i class="fa-solid fa-heart" style="color: #e60000;"></i></a>
+                <a href="../profile/"><i class="fa-solid fa-user"></i></a>
+            </div>
+            <button class="btn-signup" id="btn-logout">Déconnexion</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Mes favoris</h1>
+            <p class="hero-subtitle">Retrouve ici toutes les offres auxquelles tu as postulé.</p>
+        </section>
+
+        <section class="jobs-section">
+            <div id="favorites-container" class="job-grid"></div>
+        </section>
+    </main>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
