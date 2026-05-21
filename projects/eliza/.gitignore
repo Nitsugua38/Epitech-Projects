@@ -1,0 +1,5 @@
+chatbot/node_modules
+chatbot/package-lock.json
+chatbot/.env
+# Local Netlify folder
+.netlify
